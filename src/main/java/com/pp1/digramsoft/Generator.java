@@ -81,6 +81,7 @@ public class Generator extends Group {
             this.colorSelect = new Node[] {
                 new Circle(210, 75, 25)
             };
+            ((Circle) this.colorSelect[0]).setFill(Stakeholder.StakeholderColor.DARKGRAY.getColor());
             this.colorSelect[0].setOnMouseClicked(event -> {
                 System.out.println("[Generator] Open color selector");
 
