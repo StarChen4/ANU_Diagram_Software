@@ -178,6 +178,7 @@ public class Generator extends Group {
             // TextFields
             this.textFields = new TextField[] {
                     new TextField(),  // x interest
+                    new TextField(),  // y influence
                     new TextField()   // y influence
             };
             this.textFields[0].setMinWidth(240);
@@ -186,6 +187,9 @@ public class Generator extends Group {
             this.textFields[1].setMinWidth(240);
             this.textFields[1].setMinHeight(40);
             this.textFields[1].setLayoutY(170);
+            this.textFields[2].setMinWidth(240);
+            this.textFields[2].setMinHeight(40);
+            this.textFields[2].setLayoutY(220);
 
 
 
