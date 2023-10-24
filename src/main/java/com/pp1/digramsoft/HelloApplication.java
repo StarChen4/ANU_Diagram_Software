@@ -67,7 +67,7 @@ public class HelloApplication extends Application {
 
         // Stakeholder Map Generator
         Generator stakeholderMapGenerator = new Generator(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10, 300,
-                "Change Text", EntityType.DIAGRAM, diagram, this.root);
+                "Generate Diagram", EntityType.DIAGRAM, diagram, this.root);
         root.getChildren().add(stakeholderMapGenerator);
 
         // dropdown list
