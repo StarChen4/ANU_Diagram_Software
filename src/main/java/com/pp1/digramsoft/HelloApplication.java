@@ -28,8 +28,8 @@ import java.util.ArrayList;
 
 public class HelloApplication extends Application {
     private final Group root = new Group();
-    private static final int WINDOW_WIDTH = 600;
-    private static final int WINDOW_HEIGHT = 519;
+    private static final int WINDOW_WIDTH = 1280;
+    private static final int WINDOW_HEIGHT = 720;
     Triangle highlighted = null;
     ArrayList<Triangle> triangles = new ArrayList<>();
     Triangle findNearestTriangle(double x, double y) {
@@ -119,31 +119,31 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(this.root, WINDOW_WIDTH, WINDOW_HEIGHT);
+
 //        Polygon tri = new Polygon();
 //        tri.getPoints().addAll(0.0, -86.6,
 //                100.0, 86.6,
 //                -100.0, 86.6);
 //        tri.setLayoutX((double) WINDOW_WIDTH /2);
 //        tri.setLayoutY((double) WINDOW_HEIGHT /2);
-        Triangle tri = new Triangle((double) WINDOW_WIDTH / 2, (double) WINDOW_HEIGHT / 2, 200);
-        tri.setFill(Color.LIGHTGRAY);
-        this.root.getChildren().add(tri);
-
-
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 5; col++) {
-                Triangle grid = new Triangle((col + 1)*100, (row + 1) * 173.2 - 86.6, 196);
-                grid.setFill(Color.LIGHTGRAY);
-                if (col % 2 == 1) grid.setRotate(180);
-                triangles.add(grid);
-            }
-        }
-        this.root.getChildren().addAll(triangles);
-
-        DraggableTriangle dragTri = new DraggableTriangle((double) WINDOW_WIDTH / 2, (double) WINDOW_HEIGHT / 2, 200);
-        dragTri.setFill(Color.RED);
-        this.root.getChildren().add(dragTri);
-//        highlightedNearestTriangle(0,0);
+//        Triangle tri = new Triangle((double) WINDOW_WIDTH / 2, (double) WINDOW_HEIGHT / 2, 200);
+//        tri.setFill(Color.LIGHTGRAY);
+//        this.root.getChildren().add(tri);
+//
+//
+//        for (int row = 0; row < 3; row++) {
+//            for (int col = 0; col < 5; col++) {
+//                Triangle grid = new Triangle((col + 1)*100, (row + 1) * 173.2 - 86.6, 196);
+//                grid.setFill(Color.LIGHTGRAY);
+//                if (col % 2 == 1) grid.setRotate(180);
+//                triangles.add(grid);
+//            }
+//        }
+//        this.root.getChildren().addAll(triangles);
+//
+//        DraggableTriangle dragTri = new DraggableTriangle((double) WINDOW_WIDTH / 2, (double) WINDOW_HEIGHT / 2, 200);
+//        dragTri.setFill(Color.RED);
+//        this.root.getChildren().add(dragTri);
 
         stage.setScene(scene);
         stage.show();
