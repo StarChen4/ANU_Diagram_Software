@@ -83,6 +83,7 @@ public class Background extends ImageView {
     public Background(EntityType entityType, boolean isColorful, boolean isLabeled, String[] text, double width){
         this.isColorful = isColorful;
         this.isLabeled = isLabeled;
+        setTextEntities(text);
         System.out.println("[Background] init with Type: " + entityType + " color: " + isColorful + " label: " + isLabeled);
         if (entityType == EntityType.RAINBOW_CHART && isColorful && isLabeled) {
             this.setImage(colouredRainbow);

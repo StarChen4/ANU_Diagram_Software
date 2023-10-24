@@ -129,7 +129,16 @@ public class Generator extends Group {
             this.button = new Button(buttonText);
             this.button.setOnAction(event -> {
                 // Text field to String[]
-                toShow.getChildren().clear();
+                if (!toShow.getChildren().isEmpty()) {
+                    Background oldBackground = (Background) toShow.getChildren().get(0);
+                    for (int idx = 0; idx < oldBackground.textEntities.length; idx++) {
+                        // it works but memory will increase
+                        oldBackground.textEntities[idx].setVisible(false);
+                    }
+                    toShow.getChildren().clear();
+                }
+
+
                 String[] text = new String[textFields.length];
                 for (int idx = 0; idx < textFields.length; idx++) {
                     text[idx] = textFields[idx].getText();
