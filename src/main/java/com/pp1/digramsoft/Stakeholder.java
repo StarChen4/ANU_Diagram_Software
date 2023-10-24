@@ -15,6 +15,10 @@ public class Stakeholder extends Group {
     private double circleRadius = 20;
     private Text text;
     private double textSize = 20;
+    // a copy of itself to stay at the original place
+    private Stakeholder selfCopy;
+    // determine to copy or not to avoid infinite copy
+    private boolean needCopy;
     private double mouseX;
     private double mouseY;
     public enum StakeholderColor{
@@ -24,7 +28,7 @@ public class Stakeholder extends Group {
         CYAN(Color.CYAN),
         BLACK(Color.BLACK),
         WHITE(Color.WHITE);
-        public final Color color;
+        private final Color color;
         StakeholderColor(Color color){
             this.color = color;
         }
@@ -37,12 +41,13 @@ public class Stakeholder extends Group {
      * @param name a String representing the name of it
      * @param color the color
      */
-    public Stakeholder(String name, Color color){
+    public Stakeholder(String name, Color color, boolean needCopy){
         // initialization
         this.name = name;
         this.color = color;
         this.isDraggable = true;
         this.isVisible = true;
+        this.needCopy = needCopy;
 
         // draw the circle
         this.circle = new Circle(circleRadius);
@@ -58,18 +63,32 @@ public class Stakeholder extends Group {
         this.text.setLayoutX(2 * circleRadius + textSize);
         this.text.setLayoutY(circleRadius * 5 / 4);
 
+        // the copy of itself, cannot be dragged, no need to copy again
+        if (needCopy) {
+            this.selfCopy = new Stakeholder(this.name, this.color, false);
+            this.selfCopy.setDraggable(false);
+            this.getChildren().add(this.selfCopy);
+        }
+
         // get the coordinate of mouse and move to the front when pressed
         this.setOnMousePressed(event -> {
             this.mouseX = event.getSceneX();
             this.mouseY = event.getSceneY();
             this.toFront();
         });
-        // make it draggable
+        // make the whole stakeholder draggable
         this.setOnMouseDragged(event -> {
-            this.setLayoutX(this.getLayoutX() + event.getSceneX() - mouseX);
-            this.setLayoutY(this.getLayoutY() + event.getSceneY() - mouseY);
-            this.mouseX = event.getSceneX();
-            this.mouseY = event.getSceneY();
+            if (isDraggable){
+                this.setLayoutX(this.getLayoutX() + event.getSceneX() - mouseX);
+                this.setLayoutY(this.getLayoutY() + event.getSceneY() - mouseY);
+                this.mouseX = event.getSceneX();
+                this.mouseY = event.getSceneY();
+            }
         });
+    }
+
+    public void setDraggable(boolean isDraggable){this.isDraggable = isDraggable;}
+    public String toString(){
+        return name;
     }
 }
