@@ -114,32 +114,17 @@ public class Generator extends Group {
 
         // STAKEHOLDER MAP
         if (this.entityType == EntityType.STAKEHOLDER_MAP) {
-            /*        10
-                +-----+-------+
-                |50x50| 180x50|
-                +-----+-------+10
+            /*
+                +-------------+
+                |   240x50    |
+                +-----+-+-----+10
+                |50x50| |50x50|
+                +-----+-+-----+10
                 |  240x40     |
                 +-------------+10
                 |  240x40     |
                 +-------------+
              */
-            // colorSelect
-            this.colorSelect = new Node[] {
-                    new ImageView(new Image("file:src/main/java/com/pp1/digramsoft/assets/colorCircle.png",
-                            50, 50, false, false))
-            };
-            ColorAdjust colorAdjust = new ColorAdjust();
-            colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
-            this.colorSelect[0].setEffect(colorAdjust);
-            this.colorSelect[0].setOnMouseClicked(event -> {
-
-                System.out.println("[Generator] Open color selector");
-
-                this.isColorSelectorVisable = !this.isColorSelectorVisable;
-                // act as isColorful
-                colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
-                this.colorSelect[0].setEffect(colorAdjust);
-            });
 
             // button
             this.button = new Button(buttonText);
@@ -164,9 +149,36 @@ public class Generator extends Group {
                 this.textFields[0].setText("");
                 this.textFields[1].setText("");
             });
-            this.button.setMinWidth(180);
+            this.button.setMinWidth(240);
             this.button.setMinHeight(50);
-            this.button.setLayoutX(60);
+
+            // colorSelect
+            this.colorSelect = new Node[] {
+                    new ImageView(new Image("file:src/main/java/com/pp1/digramsoft/assets/colorCircle.png",
+                            50, 50, false, false)),
+                    new Circle(215, 85, 25)
+            };
+            ColorAdjust colorAdjust = new ColorAdjust();
+            colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
+            this.colorSelect[0].setEffect(colorAdjust);
+            this.colorSelect[0].setOnMouseClicked(event -> {
+
+                System.out.println("[Generator] Open color selector");
+
+                this.isColorSelectorVisable = !this.isColorSelectorVisable;
+                // act as isColorful
+                colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
+                this.colorSelect[0].setEffect(colorAdjust);
+            });
+            this.colorSelect[0].setLayoutY(60);
+
+            ((Circle) this.colorSelect[1]).setFill(this.hasLabel ? Color.RED : Color.BLACK);
+            this.colorSelect[1].setOnMouseClicked(event -> {
+                this.hasLabel = !this.hasLabel;
+                System.out.println("[Generator] Set hasLabel to: " + this.hasLabel);
+                ((Circle) this.colorSelect[1]).setFill(this.hasLabel ? Color.RED : Color.BLACK);
+            });
+
             // TextFields
             this.textFields = new TextField[] {
                     new TextField(),  // x interest
@@ -174,10 +186,10 @@ public class Generator extends Group {
             };
             this.textFields[0].setMinWidth(240);
             this.textFields[0].setMinHeight(40);
-            this.textFields[0].setLayoutY(60);
+            this.textFields[0].setLayoutY(120);
             this.textFields[1].setMinWidth(240);
             this.textFields[1].setMinHeight(40);
-            this.textFields[1].setLayoutY(110);
+            this.textFields[1].setLayoutY(170);
 
 
 
