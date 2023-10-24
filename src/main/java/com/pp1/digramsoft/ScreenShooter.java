@@ -22,8 +22,8 @@ public class ScreenShooter {
     public FileChooser fileChooser;
     public Button screenShotButton = new Button("Screenshot");
     public ScreenShooter(double window_width, double window_height, Stage stage, Group root){
-        this.screenShotButton.setLayoutX(window_width - 100);
-        this.screenShotButton.setLayoutX(window_height - 40);
+        this.screenShotButton.setLayoutX(window_width - 110);
+        this.screenShotButton.setLayoutY(window_height - 60);
         root.getChildren().add(this.screenShotButton);
         this.screenShotButton.setOnAction(event -> {
             // take a screenshot of root
@@ -33,7 +33,7 @@ public class ScreenShooter {
             outputFile = fileChooser.showSaveDialog(stage);
             // save it to the directory chosen by the user
             if (outputFile != null) {
-                BufferedImage bufferedImage = convertFxImageToBufferedImage(outputImage);
+                BufferedImage bufferedImage = convertFxImageToBufferedImage(outputImage,260, (int) window_width);
                 try {
                     ImageIO.write((RenderedImage) bufferedImage, "png", outputFile);
                 } catch (IOException e) {
@@ -43,14 +43,14 @@ public class ScreenShooter {
         });
     }
     // read the image pixel by pixel and transform it into a BufferedImage
-    private BufferedImage convertFxImageToBufferedImage(WritableImage fxImage) {
-        int width = (int) fxImage.getWidth();
+    private BufferedImage convertFxImageToBufferedImage(WritableImage fxImage,int startX, int endX) {
+        int width = endX - startX * 2;
         int height = (int) fxImage.getHeight();
         BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         PixelReader pixelReader = fxImage.getPixelReader();
         int[] buffer = new int[width];
         for (int y = 0; y < height; y++) {
-            pixelReader.getPixels(0, y, width, 1, PixelFormat.getIntArgbInstance(), buffer, 0, width);
+            pixelReader.getPixels(startX, y, width, 1, PixelFormat.getIntArgbInstance(), buffer, 0, width);
             for (int x = 0; x < width; x++) {
                 bufferedImage.setRGB(x, y, buffer[x]);
             }
