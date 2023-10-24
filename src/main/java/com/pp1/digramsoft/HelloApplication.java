@@ -51,7 +51,8 @@ public class HelloApplication extends Application {
         root.getChildren().add(stakeholderGenerator);
 
         // Background
-
+        diagram.setLayoutX(LEFT_WINDOW_WIDTH + 30);
+        root.getChildren().add(diagram);
 
         // Window Background
         Rectangle rightWindow = new Rectangle(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH, 0, RIGHT_WINDOW_WIDTH, RIGHT_WINDOW_HEIGHT);
