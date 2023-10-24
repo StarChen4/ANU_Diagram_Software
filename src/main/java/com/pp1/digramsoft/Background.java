@@ -77,7 +77,7 @@ public class Background extends ImageView {
         System.out.println("[Background] init with Type: " + entityType + " color: " + isColorful + " label: " + isLabeled);
         if (entityType == EntityType.RAINBOW_CHART && isColorful && isLabeled){
             this.setImage(colouredRainbow);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setLayoutX(300);
             this.setLayoutY(50);
             this.setPreserveRatio(true);
@@ -88,7 +88,29 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && isLabeled){
             this.setImage(blackWhiteRainbow);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
+            this.setLayoutX(300);
+            this.setLayoutY(50);
+            this.setPreserveRatio(true);
+            Text textEntity1 = new Text(text[0]);
+            Text textEntity2 = new Text(text[1]);
+            Text textEntity3 = new Text(text[2]);
+            Text titleOfGraph = new Text(title);
+        }
+        if (entityType == EntityType.RAINBOW_CHART && isColorful && !isLabeled){
+            this.setImage(colouredRainbow);
+            this.setFitWidth(width+100);
+            this.setLayoutX(300);
+            this.setLayoutY(50);
+            this.setPreserveRatio(true);
+            Text textEntity1 = new Text(text[0]);
+            Text textEntity2 = new Text(text[1]);
+            Text textEntity3 = new Text(text[2]);
+            Text titleOfGraph = new Text(title);
+        }
+        if (entityType == EntityType.RAINBOW_CHART && !isColorful && !isLabeled){
+            this.setImage(blackWhiteRainbow);
+            this.setFitWidth(width+100);
             this.setLayoutX(300);
             this.setLayoutY(50);
             this.setPreserveRatio(true);
