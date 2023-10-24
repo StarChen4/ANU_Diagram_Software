@@ -40,9 +40,7 @@ public class HelloApplication extends Application {
         stakeholderList.setPrefSize(LEFT_WINDOW_WIDTH - 20, LEFT_WINDOW_HEIGHT - 330);
         stakeholderList.setMaxHeight(LEFT_WINDOW_HEIGHT - 330);
         stakeholderList.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
-
-
-        root.getChildren().add(stakeholders);
+        root.getChildren().add(stakeholderList);
         // Stakeholder Generator
         Generator stakeholderGenerator = new Generator(10, 600, "Generate", EntityType.STAKEHOLDER, stakeholders, this.root);
         root.getChildren().add(stakeholderGenerator);
