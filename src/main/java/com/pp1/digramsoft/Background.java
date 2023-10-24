@@ -102,7 +102,7 @@ public class Background extends ImageView {
             textEntity1.rotateProperty();
             textEntity2.rotateProperty().set(270);
             textEntity3.rotateProperty().set(90);
-            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutX(600);
             textEntity1.setLayoutY(100);
             textEntity2.setLayoutX(250);
             textEntity2.setLayoutY(300);
@@ -128,7 +128,7 @@ public class Background extends ImageView {
             textEntity1.rotateProperty();
             textEntity2.rotateProperty().set(270);
             textEntity3.rotateProperty().set(90);
-            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutX(600);
             textEntity1.setLayoutY(100);
             textEntity2.setLayoutX(250);
             textEntity2.setLayoutY(300);
@@ -155,7 +155,7 @@ public class Background extends ImageView {
             textEntity1.rotateProperty();
             textEntity2.rotateProperty().set(270);
             textEntity3.rotateProperty().set(90);
-            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutX(600);
             textEntity1.setLayoutY(100);
             textEntity2.setLayoutX(250);
             textEntity2.setLayoutY(300);
@@ -179,7 +179,7 @@ public class Background extends ImageView {
             textEntity1.rotateProperty();
             textEntity2.rotateProperty().set(270);
             textEntity3.rotateProperty().set(90);
-            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutX(600);
             textEntity1.setLayoutY(100);
             textEntity2.setLayoutX(250);
             textEntity2.setLayoutY(300);
@@ -203,9 +203,9 @@ public class Background extends ImageView {
             textEntity1.rotateProperty();
             textEntity2.rotateProperty();
             textEntity3.rotateProperty().set(270);
-            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutX(600);
             textEntity1.setLayoutY(80);
-            textEntity2.setLayoutX(640);
+            textEntity2.setLayoutX(600);
             textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
             textEntity3.setLayoutY(350);
@@ -228,9 +228,9 @@ public class Background extends ImageView {
             textEntity1.rotateProperty();
             textEntity2.rotateProperty();
             textEntity3.rotateProperty().set(270);
-            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutX(600);
             textEntity1.setLayoutY(80);
-            textEntity2.setLayoutX(640);
+            textEntity2.setLayoutX(600);
             textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
             textEntity3.setLayoutY(350);
@@ -253,9 +253,9 @@ public class Background extends ImageView {
             textEntity1.rotateProperty();
             textEntity2.rotateProperty();
             textEntity3.rotateProperty().set(270);
-            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutX(600);
             textEntity1.setLayoutY(80);
-            textEntity2.setLayoutX(640);
+            textEntity2.setLayoutX(600);
             textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
             textEntity3.setLayoutY(350);
@@ -278,9 +278,9 @@ public class Background extends ImageView {
             textEntity1.rotateProperty();
             textEntity2.rotateProperty();
             textEntity3.rotateProperty().set(270);
-            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutX(600);
             textEntity1.setLayoutY(80);
-            textEntity2.setLayoutX(640);
+            textEntity2.setLayoutX(600);
             textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
             textEntity3.setLayoutY(350);
