@@ -9,6 +9,8 @@ public class Stakeholder extends Group {
     private String text;
     private boolean isDraggable;
     private boolean isVisible;
+    private double mouseX;
+    private double mouseY;
     public enum StakeholderColor{
         RED(Color.RED),
         YELLOW(Color.YELLOW),
@@ -20,15 +22,33 @@ public class Stakeholder extends Group {
         StakeholderColor(Color color){
             this.color = color;
         }
+        public Color getColor(){return color;}
     }
 
+    /**
+     * constructor: set the color and the text of stakeholder
+     * and make it draggable
+     * @param name a String representing the name of it
+     * @param color the color
+     */
     public Stakeholder(String name, Color color){
+        // initialization
         this.text = name;
         this.color = color;
         this.isDraggable = true;
         this.isVisible = true;
-    }
-    public void setInvisible(){
-        this.isVisible = false;
+        // get the coordinate of mouse and move to the front when pressed
+        this.setOnMousePressed(event -> {
+            this.mouseX = event.getSceneX();
+            this.mouseY = event.getSceneY();
+            this.toFront();
+        });
+        // make it draggable
+        this.setOnMouseDragged(event -> {
+            this.setLayoutX(this.getLayoutX() + event.getSceneX() - mouseX);
+            this.setLayoutY(this.getLayoutY() + event.getSceneY() - mouseY);
+            this.mouseX = event.getSceneX();
+            this.mouseY = event.getSceneY();
+        });
     }
 }
