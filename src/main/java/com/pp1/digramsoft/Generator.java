@@ -215,6 +215,7 @@ public class Generator extends Group {
 
 
         // INIT
+        this.button.getStyleClass().add("button");
         this.getChildren().add(this.button);
         this.getChildren().addAll(this.textFields);
         this.getChildren().addAll(this.colorSelect);
