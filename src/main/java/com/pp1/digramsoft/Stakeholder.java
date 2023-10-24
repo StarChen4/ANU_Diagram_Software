@@ -10,7 +10,7 @@ public class Stakeholder extends Group {
     private Color color;
     private String name;
     private boolean isDraggable;
-    private boolean isVisible;
+    public boolean notSeparated;
     private Circle circle;
     private double circleRadius = 20;
     private Text text;
@@ -48,7 +48,7 @@ public class Stakeholder extends Group {
         this.name = name;
         this.color = color;
         this.isDraggable = true;
-        this.isVisible = true;
+        this.notSeparated = true;
         this.needCopy = needCopy;
 
         // draw the circle
@@ -78,7 +78,10 @@ public class Stakeholder extends Group {
             this.mouseX = event.getSceneX();
             this.mouseY = event.getSceneY();
             this.draggablePart.toFront();
-            addInScreen(root);
+            if (notSeparated) {
+                addDraggableInScreen(root);
+                this.selfCopy.notSeparated = false;
+            }
         });
         // make the whole stakeholder draggable
         this.draggablePart.setOnMouseDragged(event -> {
@@ -91,7 +94,7 @@ public class Stakeholder extends Group {
         });
     }
 
-    public void addInScreen(Group root){
+    public void addDraggableInScreen(Group root){
         if (this.getChildren().contains(draggablePart)) {
             this.getChildren().remove(draggablePart);
             System.out.println("draggablePart has been removed from the original stakeholder group");
