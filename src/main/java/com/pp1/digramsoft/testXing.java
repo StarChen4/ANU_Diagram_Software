@@ -15,7 +15,7 @@ public class testXing extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
-        stakeholders = new Stakeholder("Name", Color.RED);
+        stakeholders = new Stakeholder("Name", Color.RED, true);
         root.getChildren().add(stakeholders);
         primaryStage.setScene(scene);
         primaryStage.show();

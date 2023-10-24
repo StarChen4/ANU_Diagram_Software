@@ -6,8 +6,10 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
@@ -17,10 +19,42 @@ public class Generator extends Group {
     public EventHandler<ActionEvent>[] eventEventHandler;
     public EntityType entityType;
     public Circle[] colorSelect;
+    public Group colorSelector;
+    private boolean isColorSelectorVisable = false;
 
     public Generator(double x, double y, String buttonText, EntityType entityType, ArrayList<Stakeholder> stakeholders, Group root) {
         this.entityType = entityType;
+        this.colorSelector = new Group();
+        // color selector
+        /*
+            +-+-+---------------------+
+            |O|O| ...
+            +-+-+---
+            60(50)
+         */
+        Region subWindow = new Region();
+        subWindow.setStyle(
+            "-fx-background-color: #e7e3e3;" +
+            " -fx-border-style: solid;" +
+            " -fx-border-width: 5;" +
+            " -fx-border-color: #494949;" +
+            " -fx-min-width: "+Stakeholder.StakeholderColor.values().length * 60+";" +
+            " -fx-min-height: 60;"
+        );
+        this.colorSelector.getChildren().add(subWindow);
+        for (int idx = 0; idx < Stakeholder.StakeholderColor.values().length; idx++) {
+            Circle color = new Circle(60 * (idx + 0.5), 30, 25, Stakeholder.StakeholderColor.values()[idx].getColor());
+            color.setOnMouseClicked(event -> {
+                this.colorSelect[0].setFill(color.getFill());
+                this.isColorSelectorVisable = !this.isColorSelectorVisable;
+                this.colorSelector.setVisible(this.isColorSelectorVisable);
+            });
+            this.colorSelector.getChildren().add(color);
+        }
+        this.colorSelector.setVisible(this.isColorSelectorVisable);
+        this.getChildren().add(this.colorSelector);
 
+        // STAKEHOLDER
         if (this.entityType == EntityType.STAKEHOLDER) {
             /*
              * +----------------+
@@ -46,13 +80,18 @@ public class Generator extends Group {
             this.colorSelect[0].setOnMouseClicked(event -> {
                 System.out.println("[Generator] Open color selector");
 
+                this.isColorSelectorVisable = !this.isColorSelectorVisable;
+                this.colorSelector.setLayoutX(210);
+                this.colorSelector.setLayoutY(15);
+                this.colorSelector.setVisible(isColorSelectorVisable);
+                this.colorSelector.toFront();
             });
             // button
             this.button = new Button(buttonText);
             this.button.setOnAction(event -> {
                 System.out.println("[Generator] input text: " + textFields[0].getText());
 
-                Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) this.colorSelect[0].getFill());
+                Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) this.colorSelect[0].getFill(), true);
                 stakeholder.setLayoutX(0);
                 stakeholder.setLayoutY(0);
                 root.getChildren().add(stakeholder);
