@@ -3,7 +3,13 @@ package com.pp1.digramsoft;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+
+import java.util.ArrayList;
 
 
 public class Background extends ImageView {
@@ -93,15 +99,21 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(640);
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty().set(270);
+            textEntity3.rotateProperty().set(90);
+            textEntity1.setLayoutX(620);
             textEntity1.setLayoutY(100);
-            textEntity2.setLayoutX(300);
+            textEntity2.setLayoutX(250);
             textEntity2.setLayoutY(300);
-            textEntity3.setLayoutX(950);
+            textEntity3.setLayoutX(930);
             textEntity3.setLayoutY(300);
-            textEntity1.toFront();
-            textEntity2.toFront();
-            textEntity3.toFront();
+
+            for ( Text t : textEntities) {
+                t.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR,20));
+                t.setFill(Color.DARKSLATEGRAY);
+                t.toFront();
+            }
             HelloApplication.root.getChildren().addAll(textEntities);
 
         }
@@ -113,15 +125,23 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(640);
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty().set(270);
+            textEntity3.rotateProperty().set(90);
+            textEntity1.setLayoutX(620);
             textEntity1.setLayoutY(100);
-            textEntity2.setLayoutX(300);
+            textEntity2.setLayoutX(250);
             textEntity2.setLayoutY(300);
-            textEntity3.setLayoutX(950);
+            textEntity3.setLayoutX(930);
             textEntity3.setLayoutY(300);
-            textEntity1.toFront();
-            textEntity2.toFront();
-            textEntity3.toFront();
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty().set(270);
+            textEntity3.rotateProperty().set(90);
+            for ( Text t : textEntities) {
+                t.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR,20));
+                t.setFill(Color.DARKSLATEGRAY);
+                t.toFront();
+            }
             HelloApplication.root.getChildren().addAll(textEntities);
         }
         if (entityType == EntityType.RAINBOW_CHART && isColorful && !isLabeled){
@@ -132,15 +152,21 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(640);
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty().set(270);
+            textEntity3.rotateProperty().set(90);
+            textEntity1.setLayoutX(620);
             textEntity1.setLayoutY(100);
-            textEntity2.setLayoutX(300);
+            textEntity2.setLayoutX(250);
             textEntity2.setLayoutY(300);
-            textEntity3.setLayoutX(950);
+            textEntity3.setLayoutX(930);
             textEntity3.setLayoutY(300);
-            textEntity1.toFront();
-            textEntity2.toFront();
-            textEntity3.toFront();
+
+            for ( Text t : textEntities) {
+                t.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR,20));
+                t.setFill(Color.DARKSLATEGRAY);
+                t.toFront();
+            }
             HelloApplication.root.getChildren().addAll(textEntities);
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && !isLabeled){
@@ -150,16 +176,21 @@ public class Background extends ImageView {
             Text textEntity1 = textEntities[0];
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
-
-            textEntity1.setLayoutX(640);
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty().set(270);
+            textEntity3.rotateProperty().set(90);
+            textEntity1.setLayoutX(620);
             textEntity1.setLayoutY(100);
-            textEntity2.setLayoutX(300);
+            textEntity2.setLayoutX(250);
             textEntity2.setLayoutY(300);
-            textEntity3.setLayoutX(950);
+            textEntity3.setLayoutX(930);
             textEntity3.setLayoutY(300);
-            textEntity1.toFront();
-            textEntity2.toFront();
-            textEntity3.toFront();
+
+            for ( Text t : textEntities) {
+                t.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR,20));
+                t.setFill(Color.DARKSLATEGRAY);
+                t.toFront();
+            }
             HelloApplication.root.getChildren().addAll(textEntities);
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && isLabeled){
@@ -169,16 +200,21 @@ public class Background extends ImageView {
             Text textEntity1 = textEntities[0];
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
-
-            textEntity1.setLayoutX(640);
-            textEntity1.setLayoutY(100);
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty();
+            textEntity3.rotateProperty().set(270);
+            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutY(80);
             textEntity2.setLayoutX(640);
             textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
-            textEntity3.setLayoutY(300);
-            textEntity1.toFront();
-            textEntity2.toFront();
-            textEntity3.toFront();
+            textEntity3.setLayoutY(350);
+
+            for ( Text t : textEntities) {
+                t.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR,20));
+                t.setFill(Color.DARKSLATEGRAY);
+                t.toFront();
+            }
             HelloApplication.root.getChildren().addAll(textEntities);
 
         }
@@ -189,16 +225,21 @@ public class Background extends ImageView {
             Text textEntity1 = textEntities[0];
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
-
-            textEntity1.setLayoutX(640);
-            textEntity1.setLayoutY(100);
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty();
+            textEntity3.rotateProperty().set(270);
+            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutY(80);
             textEntity2.setLayoutX(640);
             textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
-            textEntity3.setLayoutY(300);
-            textEntity1.toFront();
-            textEntity2.toFront();
-            textEntity3.toFront();
+            textEntity3.setLayoutY(350);
+
+            for ( Text t : textEntities) {
+                t.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR,20));
+                t.setFill(Color.DARKSLATEGRAY);
+                t.toFront();
+            }
             HelloApplication.root.getChildren().addAll(textEntities);
 
         }
@@ -209,16 +250,21 @@ public class Background extends ImageView {
             Text textEntity1 = textEntities[0];
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
-
-            textEntity1.setLayoutX(640);
-            textEntity1.setLayoutY(100);
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty();
+            textEntity3.rotateProperty().set(270);
+            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutY(80);
             textEntity2.setLayoutX(640);
             textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
-            textEntity3.setLayoutY(300);
-            textEntity1.toFront();
-            textEntity2.toFront();
-            textEntity3.toFront();
+            textEntity3.setLayoutY(350);
+
+            for ( Text t : textEntities) {
+                t.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR,20));
+                t.setFill(Color.DARKSLATEGRAY);
+                t.toFront();
+            }
             HelloApplication.root.getChildren().addAll(textEntities);
 
         }
@@ -229,16 +275,21 @@ public class Background extends ImageView {
             Text textEntity1 = textEntities[0];
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
-
-            textEntity1.setLayoutX(640);
-            textEntity1.setLayoutY(100);
+            textEntity1.rotateProperty();
+            textEntity2.rotateProperty();
+            textEntity3.rotateProperty().set(270);
+            textEntity1.setLayoutX(620);
+            textEntity1.setLayoutY(80);
             textEntity2.setLayoutX(640);
             textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
-            textEntity3.setLayoutY(300);
-            textEntity1.toFront();
-            textEntity2.toFront();
-            textEntity3.toFront();
+            textEntity3.setLayoutY(350);
+
+            for ( Text t : textEntities) {
+                t.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR,20));
+                t.setFill(Color.DARKSLATEGRAY);
+                t.toFront();
+            }
             HelloApplication.root.getChildren().addAll(textEntities);
         }
     }
