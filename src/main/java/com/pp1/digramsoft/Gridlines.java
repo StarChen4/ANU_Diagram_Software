@@ -3,6 +3,7 @@ package com.pp1.digramsoft;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
@@ -28,6 +29,17 @@ public class Gridlines extends Group {
         }
         for (int i = 0; i < horizonLineAmount; i++) {
             horizonLines.add(new Line(0,i * verticalGap,window_width,i * verticalGap));
+        }
+        // change the features of the lines
+        for (int i = 0; i < verticalLineAmount; i++) {
+            verticalLines.get(i).setStroke(Color.DARKGREY);
+            verticalLines.get(i).setStrokeWidth(1);
+            verticalLines.get(i).getStrokeDashArray().addAll(10.0, 5.0);
+        }
+        for (int i = 0; i < horizonLineAmount; i++) {
+            horizonLines.get(i).setStroke(Color.DARKGREY);
+            horizonLines.get(i).setStrokeWidth(1);
+            horizonLines.get(i).getStrokeDashArray().addAll(10.0, 5.0);
         }
         // if clicked, show those lines
         this.gridButton.setOnAction(event -> {
