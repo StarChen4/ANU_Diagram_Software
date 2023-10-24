@@ -3,12 +3,18 @@ package com.pp1.digramsoft;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 public class Stakeholder extends Group {
     private Color color;
-    private String text;
+    private String name;
     private boolean isDraggable;
     private boolean isVisible;
+    private Circle circle;
+    private double circleRadius = 20;
+    private Text text;
+    private double textSize = 20;
     private double mouseX;
     private double mouseY;
     public enum StakeholderColor{
@@ -33,10 +39,25 @@ public class Stakeholder extends Group {
      */
     public Stakeholder(String name, Color color){
         // initialization
-        this.text = name;
+        this.name = name;
         this.color = color;
         this.isDraggable = true;
         this.isVisible = true;
+
+        // draw the circle
+        this.circle = new Circle(circleRadius);
+        this.circle.setFill(this.color);
+        this.getChildren().add(this.circle);
+        this.circle.setLayoutX(circleRadius);
+        this.circle.setLayoutY(circleRadius);
+
+        // generate the text
+        this.text = new Text(this.name);
+        this.text.setStyle("-fx-font-color: black; -fx-font-size: " + textSize + "px; -fx-font-weight: bold;");
+        this.getChildren().add(this.text);
+        this.text.setLayoutX(2 * circleRadius + textSize);
+        this.text.setLayoutY(circleRadius * 5 / 4);
+
         // get the coordinate of mouse and move to the front when pressed
         this.setOnMousePressed(event -> {
             this.mouseX = event.getSceneX();
