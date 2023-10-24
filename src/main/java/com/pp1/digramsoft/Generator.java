@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
@@ -16,6 +17,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Generator extends Group {
     public Button button;
@@ -123,29 +126,40 @@ public class Generator extends Group {
                     new ImageView(new Image("file:src/main/java/com/pp1/digramsoft/assets/colorCircle.png",
                             50, 50, false, false))
             };
-            this.colorSelect[0].setLayoutX(0);
-            this.colorSelect[0].setLayoutY(0);
+            ColorAdjust colorAdjust = new ColorAdjust();
+            colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
+            this.colorSelect[0].setEffect(colorAdjust);
             this.colorSelect[0].setOnMouseClicked(event -> {
                 System.out.println("[Generator] Open color selector");
 
                 this.isColorSelectorVisable = !this.isColorSelectorVisable;
-
+                // act as isColorful
+                colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
+                this.colorSelect[0].setEffect(colorAdjust);
             });
 
             // button
             this.button = new Button(buttonText);
-//            this.button.setOnAction(event -> {
-//                System.out.println("[Generator] input text: " + textFields[0].getText());
-//
-//                Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) ((Circle) this.colorSelect[0]).getFill(), true, root);
-//                stakeholder.setLayoutX(10);
-//                stakeholder.setLayoutY(10);
-//                toShow.getChildren().add(stakeholder);
-////                root.getChildren().add(stakeholder);
-//
-//                // reset
-//                this.textFields[0].setText("");
-//            });
+            this.button.setOnAction(event -> {
+                // Text field to String[]
+                boolean isLabeled = true;
+                String[] text = new String[textFields.length];
+                for (int idx = 0; idx < textFields.length; idx++) {
+                    text[idx] = textFields[idx].getText();
+                    if (!text[idx].equals("")) isLabeled = false;
+                }
+                System.out.println("[Generator] input text: " + Arrays.deepToString(text));
+                // create
+                System.out.println("[Generator] get isColorful:" + this.isColorSelectorVisable +
+                        " isLabeled: " + isLabeled +
+                        " title: ");
+                Background background = new Background(entityType, this.isColorSelectorVisable, isLabeled, text, "", 50);
+                toShow.getChildren().add(background);
+
+                // reset
+                this.textFields[0].setText("");
+                this.textFields[1].setText("");
+            });
             this.button.setMinWidth(180);
             this.button.setMinHeight(50);
             this.button.setLayoutX(60);

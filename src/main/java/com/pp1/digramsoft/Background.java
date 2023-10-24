@@ -54,13 +54,13 @@ public class Background extends ImageView {
       }
  */
 
-    Image blackWhiteRainbow = new Image("com/pp1/digramsoft/assets/RainbowDiagram.png");
-    Image colouredRainbow = new Image("com/pp1/digramsoft/assets/ColouredRainbow.png");
-    Image unlabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/UnlabeledStakeholdersMap.png");
-    Image labeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/LabeledStakeholdersMap.png");
-    Image colouredLabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/ColouredLabeledStakeholdersMap.png");
+    Image blackWhiteRainbow = new Image("file:src/main/java/com/pp1/digramsoft/assets/RainbowDiagram.png");
+    Image colouredRainbow = new Image("file:src/main/java/com/pp1/digramsoft/assets/ColouredRainbow.png");
+    Image unlabeledStakeholdersMap = new Image("file:src/main/java/com/pp1/digramsoft/assets/UnlabeledStakeholdersMap.png");
+    Image labeledStakeholdersMap = new Image("file:src/main/java/com/pp1/digramsoft/assets/LabeledStakeholdersMap.png");
+    Image colouredLabeledStakeholdersMap = new Image("file:src/main/java/com/pp1/digramsoft/assets/ColouredLabeledStakeholdersMap.png");
 
-    Image colouredUnlabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/ColouredUnlabeledStakeholdersMap.png");
+    Image colouredUnlabeledStakeholdersMap = new Image("file:src/main/java/com/pp1/digramsoft/assets/ColouredUnlabeledStakeholdersMap.png");
 
 //   ImageView stakeHolderImage = new ImageView(stakeholdersMap);
 //   ImageView colouredRainbowImage = new ImageView(colouredRainbow);
