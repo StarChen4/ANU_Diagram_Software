@@ -31,6 +31,7 @@ public class ScreenShooter {
             fileChooser = new FileChooser();
             fileChooser.setTitle("Sava Image");
             outputFile = fileChooser.showSaveDialog(stage);
+            // save it to the directory chosen by the user
             if (outputFile != null) {
                 BufferedImage bufferedImage = convertFxImageToBufferedImage(outputImage);
                 try {
@@ -41,6 +42,7 @@ public class ScreenShooter {
             }
         });
     }
+    // read the image pixel by pixel and transform it into a BufferedImage
     private BufferedImage convertFxImageToBufferedImage(WritableImage fxImage) {
         int width = (int) fxImage.getWidth();
         int height = (int) fxImage.getHeight();
