@@ -132,6 +132,8 @@ public class Generator extends Group {
                 }
                 System.out.println("[Generator] input text: " + Arrays.deepToString(text));
                 // create
+
+
                 System.out.println("[Generator] get isColorful: " + this.isColorSelectorVisible +
                         " isLabeled: " + this.hasLabel +
                         " title: " +

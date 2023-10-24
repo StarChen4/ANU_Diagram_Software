@@ -77,9 +77,7 @@ public class Background extends ImageView {
         System.out.println("[Background] init with Type: " + entityType + " color: " + isColorful + " label: " + isLabeled);
         if (entityType == EntityType.RAINBOW_CHART && isColorful && isLabeled){
             this.setImage(colouredRainbow);
-            this.setFitWidth(width+100);
-            this.setLayoutX(300);
-            this.setLayoutY(50);
+            this.setFitWidth(width+150);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -88,9 +86,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && isLabeled){
             this.setImage(blackWhiteRainbow);
-            this.setFitWidth(width+100);
-            this.setLayoutX(300);
-            this.setLayoutY(50);
+            this.setFitWidth(width+150);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -99,9 +95,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.RAINBOW_CHART && isColorful && !isLabeled){
             this.setImage(colouredRainbow);
-            this.setFitWidth(width+100);
-            this.setLayoutX(300);
-            this.setLayoutY(50);
+            this.setFitWidth(width+150);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -110,9 +104,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && !isLabeled){
             this.setImage(blackWhiteRainbow);
-            this.setFitWidth(width+100);
-            this.setLayoutX(300);
-            this.setLayoutY(50);
+            this.setFitWidth(width+150);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -121,7 +113,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && isLabeled){
             this.setImage(labeledStakeholdersMap);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -129,7 +121,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && !isLabeled){
             this.setImage(unlabeledStakeholdersMap);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -137,7 +129,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && isColorful && isLabeled){
             this.setImage(colouredLabeledStakeholdersMap);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -145,7 +137,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && isColorful && !isLabeled){
             this.setImage(colouredUnlabeledStakeholdersMap);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
