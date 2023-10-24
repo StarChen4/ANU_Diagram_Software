@@ -33,19 +33,23 @@ public class HelloApplication extends Application {
         leftWindow.setFill(Color.GRAY);
         root.getChildren().add(leftWindow);
         // -> Stakeholder list
+        stakeholders.setSpacing(10);
         ScrollPane stakeholderList = new ScrollPane(stakeholders);
         stakeholderList.pannableProperty().set(true);
         stakeholderList.setLayoutX(10);
         stakeholderList.setLayoutY(10);
-        stakeholderList.setPrefSize(LEFT_WINDOW_WIDTH - 20, LEFT_WINDOW_HEIGHT - 330);
-        stakeholderList.setMaxHeight(LEFT_WINDOW_HEIGHT - 330);
+        stakeholderList.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        stakeholderList.setPrefSize(LEFT_WINDOW_WIDTH - 20, LEFT_WINDOW_HEIGHT - 140);
         stakeholderList.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
+        stakeholderList.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         root.getChildren().add(stakeholderList);
+
         // Stakeholder Generator
         Generator stakeholderGenerator = new Generator(10, 600, "Generate", EntityType.STAKEHOLDER, stakeholders, this.root);
         root.getChildren().add(stakeholderGenerator);
         // -> Diagram list
 
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
