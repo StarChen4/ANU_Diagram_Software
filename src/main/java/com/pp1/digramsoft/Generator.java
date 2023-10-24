@@ -1,8 +1,5 @@
 package com.pp1.digramsoft;
 
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -14,11 +11,8 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Generator extends Group {
     public Button button;
@@ -26,8 +20,9 @@ public class Generator extends Group {
     public EntityType entityType;
     public Node[] colorSelect;
     public Group colorSelector;
-    private boolean isColorSelectorVisable = false;
+    private boolean isColorSelectorVisible = false;
     private boolean hasLabel;
+    public EntityType diagramType;
     public Generator(double x, double y, String buttonText, EntityType entityType, VBox toShow, Group root) {
         this.entityType = entityType;
         this.colorSelector = new Group();
@@ -52,12 +47,12 @@ public class Generator extends Group {
             Circle color = new Circle(60 * (idx + 0.5), 30, 25, Stakeholder.StakeholderColor.values()[idx].getColor());
             color.setOnMouseClicked(event -> {
                 ((Circle) this.colorSelect[0]).setFill(color.getFill());
-                this.isColorSelectorVisable = !this.isColorSelectorVisable;
-                this.colorSelector.setVisible(this.isColorSelectorVisable);
+                this.isColorSelectorVisible = !this.isColorSelectorVisible;
+                this.colorSelector.setVisible(this.isColorSelectorVisible);
             });
             this.colorSelector.getChildren().add(color);
         }
-        this.colorSelector.setVisible(this.isColorSelectorVisable);
+        this.colorSelector.setVisible(this.isColorSelectorVisible);
         root.getChildren().add(this.colorSelector);
 
         // STAKEHOLDER
@@ -86,10 +81,10 @@ public class Generator extends Group {
 
                 System.out.println("[Generator] Open color selector");
 
-                this.isColorSelectorVisable = !this.isColorSelectorVisable;
+                this.isColorSelectorVisible = !this.isColorSelectorVisible;
                 this.colorSelector.setLayoutX(210);
                 this.colorSelector.setLayoutY(615);
-                this.colorSelector.setVisible(isColorSelectorVisable);
+                this.colorSelector.setVisible(isColorSelectorVisible);
                 this.colorSelector.toFront();
             });
             // button
@@ -112,8 +107,8 @@ public class Generator extends Group {
 
         }
 
-        // STAKEHOLDER MAP
-        if (this.entityType == EntityType.STAKEHOLDER_MAP) {
+        // MAP
+        if (this.entityType == EntityType.DIAGRAM) {
             /*
                 +-------------+
                 |   240x50    |
@@ -137,12 +132,13 @@ public class Generator extends Group {
                 }
                 System.out.println("[Generator] input text: " + Arrays.deepToString(text));
                 // create
-                System.out.println("[Generator] get isColorful:" + this.isColorSelectorVisable +
+                System.out.println("[Generator] get isColorful: " + this.isColorSelectorVisible +
                         " isLabeled: " + this.hasLabel +
-                        " title: ");
-                Background background = new Background(entityType, this.isColorSelectorVisable, this.hasLabel, text,
+                        " title: " +
+                        " Type: " + this.diagramType);
+                Background background = new Background(diagramType, this.isColorSelectorVisible, this.hasLabel, text,
                         "", (HelloApplication.WINDOW_WIDTH - HelloApplication.LEFT_WINDOW_WIDTH - HelloApplication.RIGHT_WINDOW_WIDTH) * 0.8);
-                background.toBack();
+                background.toFront();
                 toShow.getChildren().add(background);
 
                 // reset
@@ -159,15 +155,15 @@ public class Generator extends Group {
                     new Circle(215, 85, 25)
             };
             ColorAdjust colorAdjust = new ColorAdjust();
-            colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
+            colorAdjust.setSaturation(this.isColorSelectorVisible ? 0 : -0.8);
             this.colorSelect[0].setEffect(colorAdjust);
             this.colorSelect[0].setOnMouseClicked(event -> {
 
                 System.out.println("[Generator] Open color selector");
 
-                this.isColorSelectorVisable = !this.isColorSelectorVisable;
+                this.isColorSelectorVisible = !this.isColorSelectorVisible;
                 // act as isColorful
-                colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
+                colorAdjust.setSaturation(this.isColorSelectorVisible ? 0 : -0.8);
                 this.colorSelect[0].setEffect(colorAdjust);
             });
             this.colorSelect[0].setLayoutY(60);
@@ -209,5 +205,7 @@ public class Generator extends Group {
         this.hasLabel = hasLabel;
     }
 
-
+    public void setDiagramType(EntityType diagramType) {
+        this.diagramType = diagramType;
+    }
 }

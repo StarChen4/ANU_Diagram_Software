@@ -3,7 +3,8 @@ package com.pp1.digramsoft;
 enum EntityType {
     STAKEHOLDER_MAP("sm", "StakeholderMap"),
     RAINBOW_CHART("rc", "RainbowChart"),
-    STAKEHOLDER("s", "Stakeholder");
+    STAKEHOLDER("s", "Stakeholder"),
+    DIAGRAM("d", "Diagram");
     private String symbol;
     private String typeName;
     EntityType(String symbol, String typeName) {

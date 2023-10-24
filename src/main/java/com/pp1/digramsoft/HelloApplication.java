@@ -62,17 +62,27 @@ public class HelloApplication extends Application {
         root.getChildren().add(rightWindow);
         // -> Diagram list
 
+        // Stakeholder Map Generator
+        Generator stakeholderMapGenerator = new Generator(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10, 300,
+                "Change Text", EntityType.DIAGRAM, diagram, this.root);
+        root.getChildren().add(stakeholderMapGenerator);
+
+        // dropdown list
         ChoiceBox choiceBox = new ChoiceBox();
         choiceBox.getItems().addAll("Rainbow Diagram", "Stakeholder Map");
+        choiceBox.setValue("Rainbow Diagram");
+        backgroundType = EntityType.RAINBOW_CHART;
         choiceBox.setOnAction((event -> {
             int selectedIndex = choiceBox.getSelectionModel().getSelectedIndex();
-
+            System.out.println(selectedIndex);
             if (selectedIndex == 0) {
                 backgroundType = EntityType.RAINBOW_CHART;
             }
             if (selectedIndex == 1) {
                 backgroundType = EntityType.STAKEHOLDER_MAP;
             }
+            stakeholderMapGenerator.setDiagramType(backgroundType);
+            System.out.println("[Dropdown] stakeholderGenerator type: " + stakeholderMapGenerator.diagramType);
         }));
         choiceBox.setLayoutX(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10);
         choiceBox.setLayoutY(20);
@@ -80,10 +90,7 @@ public class HelloApplication extends Application {
 
 
 
-        // Stakeholder Map Generator
-        Generator stakeholderMapGenerator = new Generator(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10, 300,
-                "Change Text", EntityType.STAKEHOLDER_MAP, diagram, this.root);
-        root.getChildren().add(stakeholderMapGenerator);
+
 
 
 
