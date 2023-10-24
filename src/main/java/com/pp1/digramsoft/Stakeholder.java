@@ -41,6 +41,7 @@ public class Stakeholder extends Group {
      * and make it draggable
      * @param name a String representing the name of it
      * @param color the color
+     * @param needCopy whether this is one stakeholder with copy or not
      */
     public Stakeholder(String name, Color color, boolean needCopy){
         // initialization
