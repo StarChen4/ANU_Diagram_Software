@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Region;
@@ -87,6 +88,13 @@ public class HelloApplication extends Application {
         choiceBox.setLayoutX(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10);
         choiceBox.setLayoutY(20);
         root.getChildren().add(choiceBox);
+
+        // show grid button
+        Gridlines gridGroup = new Gridlines(WINDOW_WIDTH, WINDOW_HEIGHT, this.root);
+        Button gridButton = gridGroup.gridButton;
+        gridButton.setLayoutX(WINDOW_WIDTH - 50);
+        gridButton.setLayoutY(20);
+        root.getChildren().add(gridButton);
 
 
 

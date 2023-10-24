@@ -19,24 +19,34 @@ public class Gridlines extends Group {
     public boolean isShown;
     public Gridlines(double window_width, double window_height, Group root){
         isShown = false;
-        //initialization, draw those lines
+        // initialization, draw those lines
         double horizonGap = window_width / verticalLineAmount;
         double verticalGap = window_height / horizonLineAmount;
-        for (int i = 0; i < horizonLineAmount; i++) {
-            horizonLines.set(i,new Line(i * horizonGap,0,i * horizonGap,window_height));
-        }
         for (int i = 0; i < verticalLineAmount; i++) {
-            horizonLines.set(i,new Line(0,i * verticalGap,window_width,i * verticalGap));
+            verticalLines.add(new Line(i * verticalGap,0,i * verticalGap,window_height));
+        }
+        for (int i = 0; i < horizonLineAmount; i++) {
+            horizonLines.add(new Line(0,i * verticalGap,window_width,i * verticalGap));
         }
         // if clicked, show those lines
         this.gridButton.setOnAction(event -> {
             if (!isShown
                     // avoid multiple adding
-                    && root.getChildren().containsAll(horizonLines)){
+                    && !root.getChildren().containsAll(horizonLines)){
+                System.out.println("show grid");
                 root.getChildren().addAll(horizonLines);
                 root.getChildren().addAll(verticalLines);
+                // adjust the order of lines and the diagram
+                for (int i = 0; i < verticalLineAmount; i++) {
+                    verticalLines.get(i).toBack();
+                }
+                for (int i = 0; i < horizonLineAmount; i++) {
+                    horizonLines.get(i).toBack();
+                }
+
             }
             else {
+                System.out.println("hide grid");
                 root.getChildren().removeAll(horizonLines);
                 root.getChildren().removeAll(verticalLines);
             }
