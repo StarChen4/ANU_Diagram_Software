@@ -57,7 +57,10 @@ public class Background extends ImageView {
     Image blackWhiteRainbow = new Image("com/pp1/digramsoft/assets/RainbowDiagram.png");
     Image colouredRainbow = new Image("com/pp1/digramsoft/assets/ColouredRainbow.png");
     Image unlabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/UnlabeledStakeholdersMap.png");
-    Image labeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/labeledStakeholdersMap.png");
+    Image labeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/LabeledStakeholdersMap.png");
+    Image colouredLabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/ColouredLabeledStakeholdersMap.png");
+
+    Image colouredUnlabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/ColouredUnlabeledStakeholdersMap.png");
 
 //   ImageView stakeHolderImage = new ImageView(stakeholdersMap);
 //   ImageView colouredRainbowImage = new ImageView(colouredRainbow);
@@ -98,6 +101,22 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && !isLabeled){
             this.setImage(unlabeledStakeholdersMap);
+            this.setFitWidth(width);
+            this.setPreserveRatio(true);
+            Text textEntity1 = new Text(text[0]);
+            Text textEntity2 = new Text(text[1]);
+            Text titleOfGraph = new Text(title);
+        }
+        if (entityType == EntityType.STAKEHOLDER_MAP && isColorful && isLabeled){
+            this.setImage(colouredLabeledStakeholdersMap);
+            this.setFitWidth(width);
+            this.setPreserveRatio(true);
+            Text textEntity1 = new Text(text[0]);
+            Text textEntity2 = new Text(text[1]);
+            Text titleOfGraph = new Text(title);
+        }
+        if (entityType == EntityType.STAKEHOLDER_MAP && isColorful && !isLabeled){
+            this.setImage(colouredUnlabeledStakeholdersMap);
             this.setFitWidth(width);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
