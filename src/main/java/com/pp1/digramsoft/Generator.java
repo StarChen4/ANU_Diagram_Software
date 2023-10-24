@@ -27,7 +27,7 @@ public class Generator extends Group {
     public Node[] colorSelect;
     public Group colorSelector;
     private boolean isColorSelectorVisable = false;
-
+    private boolean hasLabel;
     public Generator(double x, double y, String buttonText, EntityType entityType, VBox toShow, Group root) {
         this.entityType = entityType;
         this.colorSelector = new Group();
@@ -143,18 +143,18 @@ public class Generator extends Group {
             this.button = new Button(buttonText);
             this.button.setOnAction(event -> {
                 // Text field to String[]
-                boolean isLabeled = true;
+                toShow.getChildren().clear();
                 String[] text = new String[textFields.length];
                 for (int idx = 0; idx < textFields.length; idx++) {
                     text[idx] = textFields[idx].getText();
-                    if (!text[idx].equals("")) isLabeled = false;
                 }
                 System.out.println("[Generator] input text: " + Arrays.deepToString(text));
                 // create
                 System.out.println("[Generator] get isColorful:" + this.isColorSelectorVisable +
-                        " isLabeled: " + isLabeled +
+                        " isLabeled: " + this.hasLabel +
                         " title: ");
-                Background background = new Background(entityType, this.isColorSelectorVisable, isLabeled, text, "", (HelloApplication.WINDOW_WIDTH - HelloApplication.LEFT_WINDOW_WIDTH - HelloApplication.RIGHT_WINDOW_WIDTH) * 0.8);
+                Background background = new Background(entityType, this.isColorSelectorVisable, this.hasLabel, text,
+                        "", (HelloApplication.WINDOW_WIDTH - HelloApplication.LEFT_WINDOW_WIDTH - HelloApplication.RIGHT_WINDOW_WIDTH) * 0.8);
                 toShow.getChildren().add(background);
 
                 // reset
@@ -189,4 +189,10 @@ public class Generator extends Group {
         this.setLayoutX(x);
         this.setLayoutY(y);
     }
+
+    public void setHasLabel(boolean hasLabel) {
+        this.hasLabel = hasLabel;
+    }
+
+
 }
