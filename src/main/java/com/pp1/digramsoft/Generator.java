@@ -144,6 +144,7 @@ public class Generator extends Group {
                         "", (HelloApplication.WINDOW_WIDTH - HelloApplication.LEFT_WINDOW_WIDTH - HelloApplication.RIGHT_WINDOW_WIDTH) * 0.8);
                 background.toFront();
                 toShow.getChildren().add(background);
+                toShow.toBack();
 
                 // reset
                 this.textFields[0].setText("");

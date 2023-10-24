@@ -90,8 +90,8 @@ public class HelloApplication extends Application {
         choiceBox.setLayoutY(20);
         root.getChildren().add(choiceBox);
 
-        // show grid button
-        Gridlines gridGroup = new Gridlines(WINDOW_WIDTH, WINDOW_HEIGHT, this.root);
+        // show grid button and draw grid
+        Gridlines gridGroup;gridGroup = new Gridlines(WINDOW_WIDTH, WINDOW_HEIGHT, this.root);
         Button gridButton = gridGroup.gridButton;
         gridButton.setLayoutX(WINDOW_WIDTH - 50);
         gridButton.setLayoutY(20);

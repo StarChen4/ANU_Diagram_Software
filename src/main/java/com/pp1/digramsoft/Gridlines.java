@@ -2,6 +2,7 @@ package com.pp1.digramsoft;
 
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
@@ -34,15 +35,15 @@ public class Gridlines extends Group {
                     // avoid multiple adding
                     && !root.getChildren().containsAll(horizonLines)){
                 System.out.println("show grid");
-                root.getChildren().addAll(horizonLines);
-                root.getChildren().addAll(verticalLines);
+                root.getChildren().addAll(1,horizonLines);
+                root.getChildren().addAll(1,verticalLines);
                 // adjust the order of lines and the diagram
-                for (int i = 0; i < verticalLineAmount; i++) {
-                    verticalLines.get(i).toBack();
-                }
-                for (int i = 0; i < horizonLineAmount; i++) {
-                    horizonLines.get(i).toBack();
-                }
+//                for (int i = 0; i < verticalLineAmount; i++) {
+//                    verticalLines.get(i).toBack();
+//                }
+//                for (int i = 0; i < horizonLineAmount; i++) {
+//                    horizonLines.get(i).toBack();
+//                }
 
             }
             else {
