@@ -70,6 +70,7 @@ public class Background extends ImageView {
 
     boolean isColorful;
     boolean isLabeled;
+    public Text[] textEntities;
 
     public Background(EntityType entityType, boolean isColorful, boolean isLabeled, String[] text, String title, double width){
         this.isColorful = isColorful;
@@ -83,6 +84,11 @@ public class Background extends ImageView {
             Text textEntity2 = new Text(text[1]);
             Text textEntity3 = new Text(text[2]);
             Text titleOfGraph = new Text(title);
+
+            textEntity1.setLayoutX(700);
+            textEntity1.setLayoutY(300);
+            HelloApplication.root.getChildren().add(textEntity1);
+
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && isLabeled){
             this.setImage(blackWhiteRainbow);

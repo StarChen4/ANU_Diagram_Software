@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class HelloApplication extends Application {
-    public final Group root = new Group();
+    public static final Group root = new Group();
     public final VBox stakeholders = new VBox();
     public final VBox diagram = new VBox();
     public static final int WINDOW_WIDTH = 1280;
