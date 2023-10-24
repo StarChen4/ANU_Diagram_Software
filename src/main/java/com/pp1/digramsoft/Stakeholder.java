@@ -16,8 +16,8 @@ public class Stakeholder extends Group {
     private Text text;
     private double textSize = 20;
     // a copy of itself to stay at the original place
-    private Group draggablePart = new Group();
-    private Stakeholder selfCopy;
+    public Group draggablePart = new Group();
+    public Stakeholder selfCopy;
     // determine to copy or not to avoid infinite copy
     private boolean needCopy;
     private double mouseX;
@@ -94,12 +94,18 @@ public class Stakeholder extends Group {
     public void addInScreen(Group root){
         if (this.getChildren().contains(draggablePart)) {
             this.getChildren().remove(draggablePart);
-            if (!root.getChildren().contains(draggablePart))
+            System.out.println("draggablePart has been removed from the original stakeholder group");
+            if (!root.getChildren().contains(draggablePart)) {
                 root.getChildren().add(draggablePart);
+                System.out.println("draggablePart has been added into the root");
+            }
+
         }
+        else System.out.println("the draggablePart has already been dragged away");
     }
     public void setDraggable(boolean isDraggable){this.isDraggable = isDraggable;}
     public Stakeholder getSelfCopy(){return selfCopy;}
+
     public String toString(){
         return name;
     }
