@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -25,6 +26,7 @@ public class HelloApplication extends Application {
     public static final int LEFT_WINDOW_HEIGHT = 720;
     public static final int RIGHT_WINDOW_WIDTH = 260;
     public static final int RIGHT_WINDOW_HEIGHT = 720;
+    public EntityType backgroundType;
 
 //    private final ArrayList<Stakeholder> stakeholders = new ArrayList<>();
     private final ArrayList<Stakeholder> inScreenStakeholders = new ArrayList<>();
@@ -59,6 +61,24 @@ public class HelloApplication extends Application {
         rightWindow.setFill(Color.GRAY);
         root.getChildren().add(rightWindow);
         // -> Diagram list
+
+        ChoiceBox choiceBox = new ChoiceBox();
+        choiceBox.getItems().addAll("Rainbow Diagram", "Stakeholder Map");
+        choiceBox.setOnAction((event -> {
+            int selectedIndex = choiceBox.getSelectionModel().getSelectedIndex();
+
+            if (selectedIndex == 0) {
+                backgroundType = EntityType.RAINBOW_CHART;
+            }
+            if (selectedIndex == 1) {
+                backgroundType = EntityType.STAKEHOLDER_MAP;
+            }
+        }));
+        choiceBox.setLayoutX(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10);
+        choiceBox.setLayoutY(20);
+        root.getChildren().add(choiceBox);
+
+
 
         // Stakeholder Map Generator
         Generator stakeholderMapGenerator = new Generator(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10, 300,

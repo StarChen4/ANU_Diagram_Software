@@ -1,5 +1,6 @@
 package com.pp1.digramsoft;
 
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -124,8 +125,6 @@ public class Background extends ImageView {
             Text titleOfGraph = new Text(title);
         }
     }
-
-
 
 
 
