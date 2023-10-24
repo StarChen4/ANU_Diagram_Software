@@ -34,9 +34,10 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(this.root, WINDOW_WIDTH, WINDOW_HEIGHT);
+        scene.getStylesheets().add("file:src/main/java/com/pp1/digramsoft/buttonStyles.css");
         // Window Background
         Rectangle leftWindow = new Rectangle(0, 0, LEFT_WINDOW_WIDTH, LEFT_WINDOW_HEIGHT);
-        leftWindow.setFill(Color.GRAY);
+        leftWindow.setFill(Color.web("#f1f0ed"));
         root.getChildren().add(leftWindow);
         // -> Stakeholder list
         stakeholders.setSpacing(10);
@@ -59,7 +60,7 @@ public class HelloApplication extends Application {
 
         // Window Background
         Rectangle rightWindow = new Rectangle(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH, 0, RIGHT_WINDOW_WIDTH, RIGHT_WINDOW_HEIGHT);
-        rightWindow.setFill(Color.GRAY);
+        rightWindow.setFill(Color.web("#f1f0ed"));
         root.getChildren().add(rightWindow);
         // -> Diagram list
 
@@ -93,7 +94,7 @@ public class HelloApplication extends Application {
         // show grid button and draw grid
         Gridlines gridGroup;gridGroup = new Gridlines(WINDOW_WIDTH, WINDOW_HEIGHT, this.root);
         Button gridButton = gridGroup.gridButton;
-        gridButton.setLayoutX(WINDOW_WIDTH - 50);
+        gridButton.setLayoutX(WINDOW_WIDTH - 70);
         gridButton.setLayoutY(20);
         root.getChildren().add(gridButton);
 
