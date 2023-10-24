@@ -23,15 +23,15 @@ public class Stakeholder extends Group {
     private double mouseX;
     private double mouseY;
     public enum StakeholderColor{
-        RED(Color.RED),
-        YELLOW(Color.YELLOW),
-        GREEN(Color.GREEN),
-        CYAN(Color.CYAN),
-        BLACK(Color.BLACK),
-        WHITE(Color.WHITE);
+        YELLOW("#fbc82f"),
+        RED("#cc163a"),
+        GREEN("#5bae23"),
+        BLUE("#1a94bc"),
+        DARKGRAY("#393733"),
+        WHITE("#f8f4ed");
         private final Color color;
-        StakeholderColor(Color color){
-            this.color = color;
+        StakeholderColor(String color){
+            this.color = Color.web(color);
         }
         public Color getColor(){return color;}
     }
@@ -78,8 +78,10 @@ public class Stakeholder extends Group {
             this.mouseX = event.getSceneX();
             this.mouseY = event.getSceneY();
             this.draggablePart.toFront();
+            // only execute this part below when the draggablePart and the selfCopy are not separated
             if (notSeparated) {
-                addDraggableInScreen(root);
+                addDraggableInScreen(this.mouseX, this.mouseY, root);
+                // avoid separating the selfCopy
                 this.selfCopy.notSeparated = false;
             }
         });
@@ -94,17 +96,24 @@ public class Stakeholder extends Group {
         });
     }
 
-    public void addDraggableInScreen(Group root){
+    /**
+     * when clicked
+     * remove the draggable part from the VBox
+     * and move it into the stage root
+     * leave the selfCopy in the VBox
+     * @param root the stage root
+     */
+    public void addDraggableInScreen(double mouseX, double mouseY, Group root){
         System.out.println("now the stakeholder " + this + "has children " + this.getChildren());
         if (this.getChildren().contains(draggablePart)) {
             this.getChildren().remove(draggablePart);
-            System.out.println("draggablePart has been removed from the original stakeholder group");
             if (!root.getChildren().contains(draggablePart)) {
                 root.getChildren().add(draggablePart);
-                System.out.println("draggablePart has been added into the root");
+                // move the draggable part to the location of mouse
+                draggablePart.setLayoutX(mouseX - circleRadius);
+                draggablePart.setLayoutY(mouseY - circleRadius);
             }
         }
-        else System.out.println("the draggablePart has already been dragged away");
     }
     public void setDraggable(boolean isDraggable){this.isDraggable = isDraggable;}
     public Stakeholder getSelfCopy(){return selfCopy;}

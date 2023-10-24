@@ -120,18 +120,35 @@ public class Generator extends Group {
              */
             // colorSelect
             this.colorSelect = new Node[] {
-                    new ImageView(new Image("com/pp1/digramsoft/assets/colorCircle.png", 50, 50, false, false)) // 210, 75, 25
+                    new ImageView(new Image("file:src/main/java/com/pp1/digramsoft/assets/colorCircle.png",
+                            50, 50, false, false))
             };
+            this.colorSelect[0].setLayoutX(0);
+            this.colorSelect[0].setLayoutY(0);
             this.colorSelect[0].setOnMouseClicked(event -> {
                 System.out.println("[Generator] Open color selector");
 
                 this.isColorSelectorVisable = !this.isColorSelectorVisable;
-                this.colorSelector.setLayoutX(210);
-                this.colorSelector.setLayoutY(15);
-                this.colorSelector.setVisible(isColorSelectorVisable);
-                this.colorSelector.toFront();
+
             });
 
+            // button
+            this.button = new Button(buttonText);
+//            this.button.setOnAction(event -> {
+//                System.out.println("[Generator] input text: " + textFields[0].getText());
+//
+//                Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) ((Circle) this.colorSelect[0]).getFill(), true, root);
+//                stakeholder.setLayoutX(10);
+//                stakeholder.setLayoutY(10);
+//                toShow.getChildren().add(stakeholder);
+////                root.getChildren().add(stakeholder);
+//
+//                // reset
+//                this.textFields[0].setText("");
+//            });
+            this.button.setMinWidth(180);
+            this.button.setMinHeight(50);
+            this.button.setLayoutX(60);
             // TextFields
             this.textFields = new TextField[] {
                     new TextField(),  // x interest
@@ -139,8 +156,10 @@ public class Generator extends Group {
             };
             this.textFields[0].setMinWidth(240);
             this.textFields[0].setMinHeight(40);
+            this.textFields[0].setLayoutY(60);
             this.textFields[1].setMinWidth(240);
             this.textFields[1].setMinHeight(40);
+            this.textFields[1].setLayoutY(110);
 
 
 
