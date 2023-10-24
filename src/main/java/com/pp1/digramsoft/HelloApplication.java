@@ -60,8 +60,9 @@ public class HelloApplication extends Application {
         // -> Diagram list
 
         // Stakeholder Map Generator
-        Generator stakeholderMapGenerator = new Generator(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10, 300, "", EntityType.STAKEHOLDER_MAP, diagram, this.root);
-
+        Generator stakeholderMapGenerator = new Generator(WINDOW_WIDTH - RIGHT_WINDOW_WIDTH + 10, 300,
+                "Change Text", EntityType.STAKEHOLDER_MAP, diagram, this.root);
+        root.getChildren().add(stakeholderMapGenerator);
 
 
 
