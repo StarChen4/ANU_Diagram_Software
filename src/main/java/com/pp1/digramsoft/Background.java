@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+
 public class Background extends ImageView {
 /*
 • type: stakeholderMap/ RainbowChart/ ...
@@ -70,9 +71,16 @@ public class Background extends ImageView {
 
     boolean isColorful;
     boolean isLabeled;
-    public Text[] textEntities;
 
-    public Background(EntityType entityType, boolean isColorful, boolean isLabeled, String[] text, String title, double width){
+    public Text[] textEntities;
+    public void setTextEntities(String[] text) {
+        textEntities = new Text[text.length];
+        for (int idx = 0; idx < textEntities.length; idx++) {
+            textEntities[idx] = new Text(text[idx]);
+        }
+    }
+
+    public Background(EntityType entityType, boolean isColorful, boolean isLabeled, String[] text, double width){
         this.isColorful = isColorful;
         this.isLabeled = isLabeled;
         System.out.println("[Background] init with Type: " + entityType + " color: " + isColorful + " label: " + isLabeled);
@@ -80,74 +88,157 @@ public class Background extends ImageView {
             this.setImage(colouredRainbow);
             this.setFitWidth(width+150);
             this.setPreserveRatio(true);
-            Text textEntity1 = new Text(text[0]);
-            Text textEntity2 = new Text(text[1]);
-            Text textEntity3 = new Text(text[2]);
-            Text titleOfGraph = new Text(title);
+            Text textEntity1 = textEntities[0];
+            Text textEntity2 = textEntities[1];
+            Text textEntity3 = textEntities[2];
 
             textEntity1.setLayoutX(700);
             textEntity1.setLayoutY(300);
-            HelloApplication.root.getChildren().add(textEntity1);
+            textEntity2.setLayoutX(100);
+            textEntity2.setLayoutY(300);
+            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutY(300);
+            textEntity1.toFront();
+            textEntity2.toFront();
+            textEntity3.toFront();
+            HelloApplication.root.getChildren().addAll(textEntities);
 
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && isLabeled){
             this.setImage(blackWhiteRainbow);
             this.setFitWidth(width+150);
             this.setPreserveRatio(true);
-            Text textEntity1 = new Text(text[0]);
-            Text textEntity2 = new Text(text[1]);
-            Text textEntity3 = new Text(text[2]);
-            Text titleOfGraph = new Text(title);
+            Text textEntity1 = textEntities[0];
+            Text textEntity2 = textEntities[1];
+            Text textEntity3 = textEntities[2];
+
+            textEntity1.setLayoutX(700);
+            textEntity1.setLayoutY(300);
+            textEntity2.setLayoutX(100);
+            textEntity2.setLayoutY(300);
+            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutY(300);
+            textEntity1.toFront();
+            textEntity2.toFront();
+            textEntity3.toFront();
+            HelloApplication.root.getChildren().addAll(textEntities);
         }
         if (entityType == EntityType.RAINBOW_CHART && isColorful && !isLabeled){
             this.setImage(colouredRainbow);
             this.setFitWidth(width+150);
             this.setPreserveRatio(true);
-            Text textEntity1 = new Text(text[0]);
-            Text textEntity2 = new Text(text[1]);
-            Text textEntity3 = new Text(text[2]);
-            Text titleOfGraph = new Text(title);
+            Text textEntity1 = textEntities[0];
+            Text textEntity2 = textEntities[1];
+            Text textEntity3 = textEntities[2];
+
+            textEntity1.setLayoutX(700);
+            textEntity1.setLayoutY(300);
+            textEntity2.setLayoutX(100);
+            textEntity2.setLayoutY(300);
+            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutY(300);
+            textEntity1.toFront();
+            textEntity2.toFront();
+            textEntity3.toFront();
+            HelloApplication.root.getChildren().addAll(textEntities);
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && !isLabeled){
             this.setImage(blackWhiteRainbow);
             this.setFitWidth(width+150);
             this.setPreserveRatio(true);
-            Text textEntity1 = new Text(text[0]);
-            Text textEntity2 = new Text(text[1]);
-            Text textEntity3 = new Text(text[2]);
-            Text titleOfGraph = new Text(title);
+            Text textEntity1 = textEntities[0];
+            Text textEntity2 = textEntities[1];
+            Text textEntity3 = textEntities[2];
+
+            textEntity1.setLayoutX(700);
+            textEntity1.setLayoutY(300);
+            textEntity2.setLayoutX(100);
+            textEntity2.setLayoutY(300);
+            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutY(300);
+            textEntity1.toFront();
+            textEntity2.toFront();
+            textEntity3.toFront();
+            HelloApplication.root.getChildren().addAll(textEntities);
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && isLabeled){
             this.setImage(labeledStakeholdersMap);
             this.setFitWidth(width+100);
             this.setPreserveRatio(true);
-            Text textEntity1 = new Text(text[0]);
-            Text textEntity2 = new Text(text[1]);
-            Text titleOfGraph = new Text(title);
+            Text textEntity1 = textEntities[0];
+            Text textEntity2 = textEntities[1];
+            Text textEntity3 = textEntities[2];
+
+            textEntity1.setLayoutX(700);
+            textEntity1.setLayoutY(300);
+            textEntity2.setLayoutX(100);
+            textEntity2.setLayoutY(300);
+            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutY(300);
+            textEntity1.toFront();
+            textEntity2.toFront();
+            textEntity3.toFront();
+            HelloApplication.root.getChildren().addAll(textEntities);
+
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && !isLabeled){
             this.setImage(unlabeledStakeholdersMap);
             this.setFitWidth(width+100);
             this.setPreserveRatio(true);
-            Text textEntity1 = new Text(text[0]);
-            Text textEntity2 = new Text(text[1]);
-            Text titleOfGraph = new Text(title);
+            Text textEntity1 = textEntities[0];
+            Text textEntity2 = textEntities[1];
+            Text textEntity3 = textEntities[2];
+
+            textEntity1.setLayoutX(700);
+            textEntity1.setLayoutY(300);
+            textEntity2.setLayoutX(100);
+            textEntity2.setLayoutY(300);
+            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutY(300);
+            textEntity1.toFront();
+            textEntity2.toFront();
+            textEntity3.toFront();
+            HelloApplication.root.getChildren().addAll(textEntities);
+
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && isColorful && isLabeled){
             this.setImage(colouredLabeledStakeholdersMap);
             this.setFitWidth(width+100);
             this.setPreserveRatio(true);
-            Text textEntity1 = new Text(text[0]);
-            Text textEntity2 = new Text(text[1]);
-            Text titleOfGraph = new Text(title);
+            Text textEntity1 = textEntities[0];
+            Text textEntity2 = textEntities[1];
+            Text textEntity3 = textEntities[2];
+
+            textEntity1.setLayoutX(700);
+            textEntity1.setLayoutY(300);
+            textEntity2.setLayoutX(100);
+            textEntity2.setLayoutY(300);
+            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutY(300);
+            textEntity1.toFront();
+            textEntity2.toFront();
+            textEntity3.toFront();
+            HelloApplication.root.getChildren().addAll(textEntities);
+
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && isColorful && !isLabeled){
             this.setImage(colouredUnlabeledStakeholdersMap);
             this.setFitWidth(width+100);
             this.setPreserveRatio(true);
-            Text textEntity1 = new Text(text[0]);
-            Text textEntity2 = new Text(text[1]);
-            Text titleOfGraph = new Text(title);
+            Text textEntity1 = textEntities[0];
+            Text textEntity2 = textEntities[1];
+            Text textEntity3 = textEntities[2];
+
+            textEntity1.setLayoutX(700);
+            textEntity1.setLayoutY(300);
+            textEntity2.setLayoutX(100);
+            textEntity2.setLayoutY(300);
+            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutY(300);
+            textEntity1.toFront();
+            textEntity2.toFront();
+            textEntity3.toFront();
+            HelloApplication.root.getChildren().addAll(textEntities);
         }
     }
 

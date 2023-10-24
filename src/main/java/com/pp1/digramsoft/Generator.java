@@ -16,6 +16,7 @@ import java.util.Arrays;
 
 public class Generator extends Group {
     public Button button;
+
     public TextField[] textFields;
     public EntityType entityType;
     public Node[] colorSelect;
@@ -124,6 +125,7 @@ public class Generator extends Group {
              */
 
             // button
+
             this.button = new Button(buttonText);
             this.button.setOnAction(event -> {
                 // Text field to String[]
@@ -141,7 +143,7 @@ public class Generator extends Group {
                         " title: " +
                         " Type: " + this.diagramType);
                 Background background = new Background(diagramType, this.isColorSelectorVisible, this.hasLabel, text,
-                        "", (HelloApplication.WINDOW_WIDTH - HelloApplication.LEFT_WINDOW_WIDTH - HelloApplication.RIGHT_WINDOW_WIDTH) * 0.8);
+                         (HelloApplication.WINDOW_WIDTH - HelloApplication.LEFT_WINDOW_WIDTH - HelloApplication.RIGHT_WINDOW_WIDTH) * 0.8);
                 background.toFront();
                 toShow.getChildren().add(background);
                 toShow.toBack();
