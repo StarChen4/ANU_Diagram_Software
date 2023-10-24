@@ -19,12 +19,12 @@ public class HelloApplication extends Application {
     public final Group root = new Group();
     public final VBox stakeholders = new VBox();
     public final VBox diagram = new VBox();
-    private static final int WINDOW_WIDTH = 1280;
-    private static final int WINDOW_HEIGHT = 720;
-    private static final int LEFT_WINDOW_WIDTH = 260;
-    private static final int LEFT_WINDOW_HEIGHT = 720;
-    private static final int RIGHT_WINDOW_WIDTH = 260;
-    private static final int RIGHT_WINDOW_HEIGHT = 720;
+    public static final int WINDOW_WIDTH = 1280;
+    public static final int WINDOW_HEIGHT = 720;
+    public static final int LEFT_WINDOW_WIDTH = 260;
+    public static final int LEFT_WINDOW_HEIGHT = 720;
+    public static final int RIGHT_WINDOW_WIDTH = 260;
+    public static final int RIGHT_WINDOW_HEIGHT = 720;
 
 //    private final ArrayList<Stakeholder> stakeholders = new ArrayList<>();
     private final ArrayList<Stakeholder> inScreenStakeholders = new ArrayList<>();
