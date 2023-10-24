@@ -17,13 +17,14 @@ import java.util.ArrayList;
 
 public class HelloApplication extends Application {
     public final Group root = new Group();
-    public final VBox stakeholdersRoot = new VBox();
+    public final VBox stakeholders = new VBox();
     private static final int WINDOW_WIDTH = 1280;
     private static final int WINDOW_HEIGHT = 720;
     private static final int LEFT_WINDOW_WIDTH = 260;
     private static final int LEFT_WINDOW_HEIGHT = 720;
 
-    private final ArrayList<Stakeholder> stakeholders = new ArrayList<>();
+//    private final ArrayList<Stakeholder> stakeholders = new ArrayList<>();
+    private final ArrayList<Stakeholder> inScreenStakeholders = new ArrayList<>();
     @Override
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(this.root, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -32,7 +33,7 @@ public class HelloApplication extends Application {
         leftWindow.setFill(Color.GRAY);
         root.getChildren().add(leftWindow);
         // -> Stakeholder list
-        ScrollPane stakeholderList = new ScrollPane(stakeholdersRoot);
+        ScrollPane stakeholderList = new ScrollPane(stakeholders);
         stakeholderList.pannableProperty().set(true);
         stakeholderList.setLayoutX(10);
         stakeholderList.setLayoutY(10);
@@ -41,9 +42,9 @@ public class HelloApplication extends Application {
         stakeholderList.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
 
 
-        root.getChildren().add(stakeholdersRoot);
+        root.getChildren().add(stakeholders);
         // Stakeholder Generator
-        Generator stakeholderGenerator = new Generator(10, 600, "Generate", EntityType.STAKEHOLDER, stakeholders, stakeholdersRoot);
+        Generator stakeholderGenerator = new Generator(10, 600, "Generate", EntityType.STAKEHOLDER, stakeholders);
         root.getChildren().add(stakeholderGenerator);
         // -> Diagram list
 
