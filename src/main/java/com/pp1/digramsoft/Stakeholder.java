@@ -90,6 +90,7 @@ public class Stakeholder extends Group {
     }
 
     public void setDraggable(boolean isDraggable){this.isDraggable = isDraggable;}
+    public Stakeholder getSelfCopy(){return selfCopy;}
     public String toString(){
         return name;
     }
