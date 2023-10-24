@@ -106,6 +106,11 @@ public class Generator extends Group {
 
         }
 
+        // STAKEHOLDER MAP
+        if (this.entityType == EntityType.STAKEHOLDER_MAP) {
+
+        }
+
 
 
         // INIT
