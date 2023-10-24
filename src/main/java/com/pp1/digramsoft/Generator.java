@@ -28,7 +28,7 @@ public class Generator extends Group {
              * +---------+------+10
              * | 180x50  | 50x50|
              * +---------+------+
-             *           10     0
+             * 0         10     0
              */
             // TextFields
             this.textFields = new TextField[] {
@@ -45,6 +45,13 @@ public class Generator extends Group {
             };
             this.colorSelect[0].setOnMouseClicked(event -> {
                 System.out.println("[Generator] Open color selector");
+
+            });
+            // button
+            this.button = new Button(buttonText);
+            this.button.setOnAction(event -> {
+                System.out.println("[Generator] input text: " + textFields[0].getText());
+
                 Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) this.colorSelect[0].getFill());
                 stakeholder.setLayoutX(0);
                 stakeholder.setLayoutY(0);
@@ -53,11 +60,6 @@ public class Generator extends Group {
 
                 // reset
                 this.textFields[0].setText("");
-            });
-            // button
-            this.button = new Button(buttonText);
-            this.button.setOnAction(event -> {
-                System.out.println("[Generator] input text: " + textFields[0].getText());
             });
             this.button.setMinWidth(180);
             this.button.setMinHeight(50);
