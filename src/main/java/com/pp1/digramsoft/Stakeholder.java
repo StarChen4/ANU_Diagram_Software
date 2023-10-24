@@ -14,9 +14,9 @@ public class Stakeholder extends Group {
     private boolean isDraggable;
     public boolean notSeparated;
     private Circle circle;
-    private double circleRadius = 12;
+    private double circleRadius = 10;
     private Text text;
-    private double textSize = 20;
+    private double textSize = 12;
     private Image openEyeImage = new Image("file:src/main/java/com/pp1/digramsoft/assets/OpenEye.png");
     private Image closedEyeImage = new Image("file:src/main/java/com/pp1/digramsoft/assets/ClosedEye.png");
     private ImageView displayIcon;
