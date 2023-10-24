@@ -149,6 +149,7 @@ public class Generator extends Group {
                 // reset
                 this.textFields[0].setText("");
                 this.textFields[1].setText("");
+                this.textFields[2].setText("");
             });
             this.button.setMinWidth(240);
             this.button.setMinHeight(50);

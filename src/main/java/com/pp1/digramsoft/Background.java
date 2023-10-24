@@ -76,7 +76,7 @@ public class Background extends ImageView {
         this.isColorful = isColorful;
         this.isLabeled = isLabeled;
         System.out.println("[Background] init with Type: " + entityType + " color: " + isColorful + " label: " + isLabeled);
-        if (entityType == EntityType.RAINBOW_CHART && isColorful && isLabeled){
+        if (entityType == EntityType.RAINBOW_CHART && isColorful && isLabeled) {
             this.setImage(colouredRainbow);
             this.setFitWidth(width+150);
             this.setPreserveRatio(true);
