@@ -20,28 +20,38 @@ public class Generator extends Group {
         this.entityType = entityType;
 
         if (this.entityType == EntityType.STAKEHOLDER) {
+            /*
+             * +----------------+
+             * | 240x40         |
+             * +---------+------+10
+             * | 180x50  | 50x50|
+             * +---------+------+
+             *           10     0
+             */
             // TextFields
             this.textFields = new TextField[] {
                 new TextField()
             };
             this.textFields[0].setMinWidth(240);
-            this.textFields[0].setMinHeight(30);
+            this.textFields[0].setMinHeight(40);
             this.eventEventHandler = new EventHandler[] {
                 event -> System.out.println("[Generator] input text: " + textFields[0].getText())
             };
             // colorSelect
             this.colorSelect = new Circle[] {
-                new Circle()
+                new Circle(210, 75, 25)
             };
+            this.colorSelect[0].setOnMouseClicked(event -> {
+                System.out.println("[Generator] Open color selector");
+            });
             // button
             this.button = new Button(buttonText);
             this.button.setOnAction(event -> {
                 System.out.println("[Generator] input text: " + textFields[0].getText());
             });
             this.button.setMinWidth(180);
-            this.button.setMinHeight(30);
-            this.button.setLayoutX(0);
-            this.button.setLayoutY(0);
+            this.button.setMinHeight(50);
+            this.button.setLayoutY(50);
 
         }
 
