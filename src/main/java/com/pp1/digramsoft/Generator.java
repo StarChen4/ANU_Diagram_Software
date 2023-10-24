@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -22,7 +23,7 @@ public class Generator extends Group {
     public Group colorSelector;
     private boolean isColorSelectorVisable = false;
 
-    public Generator(double x, double y, String buttonText, EntityType entityType, ArrayList<Stakeholder> stakeholders, Group root) {
+    public Generator(double x, double y, String buttonText, EntityType entityType, ArrayList<Stakeholder> stakeholders, VBox stakeholdersRoot) {
         this.entityType = entityType;
         this.colorSelector = new Group();
         // color selector
@@ -94,7 +95,8 @@ public class Generator extends Group {
                 Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) this.colorSelect[0].getFill(), true);
                 stakeholder.setLayoutX(0);
                 stakeholder.setLayoutY(0);
-                root.getChildren().add(stakeholder);
+                stakeholdersRoot.getChildren().add(stakeholder);
+//                root.getChildren().add(stakeholder);
                 stakeholders.add(stakeholder);
 
                 // reset
