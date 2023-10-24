@@ -23,7 +23,7 @@ public class Generator extends Group {
     public Group colorSelector;
     private boolean isColorSelectorVisable = false;
 
-    public Generator(double x, double y, String buttonText, EntityType entityType, VBox stakeholders) {
+    public Generator(double x, double y, String buttonText, EntityType entityType, VBox stakeholders, Group root) {
         this.entityType = entityType;
         this.colorSelector = new Group();
         // color selector
@@ -92,7 +92,7 @@ public class Generator extends Group {
             this.button.setOnAction(event -> {
                 System.out.println("[Generator] input text: " + textFields[0].getText());
 
-                Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) this.colorSelect[0].getFill(), true);
+                Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) this.colorSelect[0].getFill(), true, root);
                 stakeholder.setLayoutX(0);
                 stakeholder.setLayoutY(0);
                 stakeholders.getChildren().add(stakeholder);
