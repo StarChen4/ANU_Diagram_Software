@@ -94,7 +94,7 @@ public class Stakeholder extends Group {
     public void addInScreen(Group root){
         if (this.getChildren().contains(draggablePart)) {
             this.getChildren().remove(draggablePart);
-            if (root.getChildren().contains(draggablePart))
+            if (!root.getChildren().contains(draggablePart))
                 root.getChildren().add(draggablePart);
         }
     }
