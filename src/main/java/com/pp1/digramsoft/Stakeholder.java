@@ -14,7 +14,7 @@ public class Stakeholder extends Group {
     private boolean isDraggable;
     public boolean notSeparated;
     private Circle circle;
-    private double circleRadius = 20;
+    private double circleRadius = 12;
     private Text text;
     private double textSize = 20;
     private Image openEyeImage = new Image("file:src/main/java/com/pp1/digramsoft/assets/OpenEye.png");
@@ -65,9 +65,9 @@ public class Stakeholder extends Group {
 
         // generate the text
         this.text = new Text(this.name);
-        this.text.setStyle("-fx-font-color: black; -fx-font-size: " + textSize + "px; -fx-font-weight: bold;");
+        this.text.setStyle("-fx-font-color: black; -fx-font-size: " + textSize + "px; -fx-font-weight: regular;");
         this.draggablePart.getChildren().add(this.text);
-        this.text.setLayoutX(4.5 * circleRadius + textSize);
+        this.text.setLayoutX(4.5 * circleRadius-10 + textSize);
         this.text.setLayoutY(circleRadius * 5 / 4);
 
         if (needCopy) {

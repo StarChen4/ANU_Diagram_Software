@@ -33,6 +33,7 @@ public class HelloApplication extends Application {
     private final ArrayList<Stakeholder> inScreenStakeholders = new ArrayList<>();
     @Override
     public void start(Stage stage) throws Exception {
+        stage.setTitle("Stakeholder Analysis Toolkit");
         Scene scene = new Scene(this.root, WINDOW_WIDTH, WINDOW_HEIGHT);
         scene.getStylesheets().add("file:src/main/java/com/pp1/digramsoft/buttonStyles.css");
         scene.getStylesheets().add("file:src/main/java/com/pp1/digramsoft/comboStyles.css");
