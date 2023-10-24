@@ -16,6 +16,7 @@ public class Stakeholder extends Group {
     private Text text;
     private double textSize = 20;
     // a copy of itself to stay at the original place
+    private Group draggablePart = new Group();
     private Stakeholder selfCopy;
     // determine to copy or not to avoid infinite copy
     private boolean needCopy;
@@ -52,14 +53,14 @@ public class Stakeholder extends Group {
         // draw the circle
         this.circle = new Circle(circleRadius);
         this.circle.setFill(this.color);
-        this.getChildren().add(this.circle);
+        this.draggablePart.getChildren().add(this.circle);
         this.circle.setLayoutX(circleRadius);
         this.circle.setLayoutY(circleRadius);
 
         // generate the text
         this.text = new Text(this.name);
         this.text.setStyle("-fx-font-color: black; -fx-font-size: " + textSize + "px; -fx-font-weight: bold;");
-        this.getChildren().add(this.text);
+        this.draggablePart.getChildren().add(this.text);
         this.text.setLayoutX(2 * circleRadius + textSize);
         this.text.setLayoutY(circleRadius * 5 / 4);
 
@@ -70,17 +71,18 @@ public class Stakeholder extends Group {
             this.getChildren().add(this.selfCopy);
         }
 
-        // get the coordinate of mouse and move to the front when pressed
-        this.setOnMousePressed(event -> {
+        // set it draggable
+        this.getChildren().add(this.draggablePart);
+        this.draggablePart.setOnMousePressed(event -> {
             this.mouseX = event.getSceneX();
             this.mouseY = event.getSceneY();
-            this.toFront();
+            this.draggablePart.toFront();
         });
         // make the whole stakeholder draggable
-        this.setOnMouseDragged(event -> {
+        this.draggablePart.setOnMouseDragged(event -> {
             if (isDraggable){
-                this.setLayoutX(this.getLayoutX() + event.getSceneX() - mouseX);
-                this.setLayoutY(this.getLayoutY() + event.getSceneY() - mouseY);
+                this.draggablePart.setLayoutX(this.draggablePart.getLayoutX() + event.getSceneX() - mouseX);
+                this.draggablePart.setLayoutY(this.draggablePart.getLayoutY() + event.getSceneY() - mouseY);
                 this.mouseX = event.getSceneX();
                 this.mouseY = event.getSceneY();
             }
