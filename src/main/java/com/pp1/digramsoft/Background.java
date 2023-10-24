@@ -56,7 +56,8 @@ public class Background extends ImageView {
 
     Image blackWhiteRainbow = new Image("com/pp1/digramsoft/assets/RainbowDiagram.png");
     Image colouredRainbow = new Image("com/pp1/digramsoft/assets/ColouredRainbow.png");
-    Image stakeholdersMap = new Image("com/pp1/digramsoft/assets/StakeholdersMap.png");
+    Image unlabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/UnlabeledStakeholdersMap.png");
+    Image labeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/labeledStakeholdersMap.png");
 
 //   ImageView stakeHolderImage = new ImageView(stakeholdersMap);
 //   ImageView colouredRainbowImage = new ImageView(colouredRainbow);
@@ -66,8 +67,9 @@ public class Background extends ImageView {
     boolean isColorful;
     boolean isLabeled;
 
-    public Background(EntityType entityType, boolean isColorful, boolean isLabeled, String[] text, double width){
+    public Background(EntityType entityType, boolean isColorful, boolean isLabeled, String[] text, String title, double width){
         this.isColorful = isColorful;
+        this.isLabeled = isLabeled;
         if (entityType == EntityType.RAINBOW_CHART && isColorful && isLabeled){
             this.setImage(colouredRainbow);
             this.setFitWidth(width);
@@ -75,6 +77,7 @@ public class Background extends ImageView {
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
             Text textEntity3 = new Text(text[2]);
+            Text titleOfGraph = new Text(title);
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && isLabeled){
             this.setImage(blackWhiteRainbow);
@@ -83,13 +86,23 @@ public class Background extends ImageView {
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
             Text textEntity3 = new Text(text[2]);
+            Text titleOfGraph = new Text(title);
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && isLabeled){
-            this.setImage(stakeholdersMap);
+            this.setImage(labeledStakeholdersMap);
             this.setFitWidth(width);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
+            Text titleOfGraph = new Text(title);
+        }
+        if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && !isLabeled){
+            this.setImage(unlabeledStakeholdersMap);
+            this.setFitWidth(width);
+            this.setPreserveRatio(true);
+            Text textEntity1 = new Text(text[0]);
+            Text textEntity2 = new Text(text[1]);
+            Text titleOfGraph = new Text(title);
         }
     }
 
