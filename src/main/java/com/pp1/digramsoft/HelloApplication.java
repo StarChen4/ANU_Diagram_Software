@@ -97,6 +97,9 @@ public class HelloApplication extends Application {
         gridButton.setLayoutY(20);
         root.getChildren().add(gridButton);
 
+        // screen shooter
+        ScreenShooter screenShooter = new ScreenShooter(WINDOW_WIDTH, WINDOW_HEIGHT, stage, root);
+
 
 
 
