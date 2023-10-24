@@ -55,7 +55,7 @@ public class Background extends ImageView {
       }
  */
 
-    Image blackWhiteRainbow = new Image("file:src/main/java/com/pp1/digramsoft/assets/RainbowDiagram.png");
+    Image blackWhiteRainbow = new Image("file:src/main/java/com/pp1/digramsoft/assets/BlackWhiteRainbow.png");
     Image colouredRainbow = new Image("file:src/main/java/com/pp1/digramsoft/assets/ColouredRainbow.png");
     Image unlabeledStakeholdersMap = new Image("file:src/main/java/com/pp1/digramsoft/assets/UnlabeledStakeholdersMap.png");
     Image labeledStakeholdersMap = new Image("file:src/main/java/com/pp1/digramsoft/assets/LabeledStakeholdersMap.png");
@@ -78,6 +78,8 @@ public class Background extends ImageView {
         if (entityType == EntityType.RAINBOW_CHART && isColorful && isLabeled){
             this.setImage(colouredRainbow);
             this.setFitWidth(width);
+            this.setLayoutX(300);
+            this.setLayoutY(50);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -87,6 +89,8 @@ public class Background extends ImageView {
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && isLabeled){
             this.setImage(blackWhiteRainbow);
             this.setFitWidth(width);
+            this.setLayoutX(300);
+            this.setLayoutY(50);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
