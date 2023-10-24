@@ -59,7 +59,6 @@ public class Background extends ImageView {
     Image unlabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/UnlabeledStakeholdersMap.png");
     Image labeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/LabeledStakeholdersMap.png");
     Image colouredLabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/ColouredLabeledStakeholdersMap.png");
-
     Image colouredUnlabeledStakeholdersMap = new Image("com/pp1/digramsoft/assets/ColouredUnlabeledStakeholdersMap.png");
 
 //   ImageView stakeHolderImage = new ImageView(stakeholdersMap);
