@@ -23,9 +23,9 @@ public class Stakeholder extends Group {
     private double mouseX;
     private double mouseY;
     public enum StakeholderColor{
-        YELLOW("#fbc82f"),
-        RED("#cc163a"),
-        GREEN("#5bae23"),
+        YELLOW("#f9723d"),
+        RED("#ef498b"),
+        PURPLE("#7e1671"),
         BLUE("#1a94bc"),
         DARKGRAY("#393733"),
         WHITE("#f8f4ed");
