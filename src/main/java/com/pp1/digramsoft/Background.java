@@ -93,11 +93,11 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(700);
-            textEntity1.setLayoutY(300);
-            textEntity2.setLayoutX(100);
+            textEntity1.setLayoutX(640);
+            textEntity1.setLayoutY(100);
+            textEntity2.setLayoutX(300);
             textEntity2.setLayoutY(300);
-            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutX(950);
             textEntity3.setLayoutY(300);
             textEntity1.toFront();
             textEntity2.toFront();
@@ -113,11 +113,11 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(700);
-            textEntity1.setLayoutY(300);
-            textEntity2.setLayoutX(100);
+            textEntity1.setLayoutX(640);
+            textEntity1.setLayoutY(100);
+            textEntity2.setLayoutX(300);
             textEntity2.setLayoutY(300);
-            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutX(950);
             textEntity3.setLayoutY(300);
             textEntity1.toFront();
             textEntity2.toFront();
@@ -132,11 +132,11 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(700);
-            textEntity1.setLayoutY(300);
-            textEntity2.setLayoutX(100);
+            textEntity1.setLayoutX(640);
+            textEntity1.setLayoutY(100);
+            textEntity2.setLayoutX(300);
             textEntity2.setLayoutY(300);
-            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutX(950);
             textEntity3.setLayoutY(300);
             textEntity1.toFront();
             textEntity2.toFront();
@@ -151,11 +151,11 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(700);
-            textEntity1.setLayoutY(300);
-            textEntity2.setLayoutX(100);
+            textEntity1.setLayoutX(640);
+            textEntity1.setLayoutY(100);
+            textEntity2.setLayoutX(300);
             textEntity2.setLayoutY(300);
-            textEntity3.setLayoutX(300);
+            textEntity3.setLayoutX(950);
             textEntity3.setLayoutY(300);
             textEntity1.toFront();
             textEntity2.toFront();
@@ -170,10 +170,10 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(700);
-            textEntity1.setLayoutY(300);
-            textEntity2.setLayoutX(100);
-            textEntity2.setLayoutY(300);
+            textEntity1.setLayoutX(640);
+            textEntity1.setLayoutY(100);
+            textEntity2.setLayoutX(640);
+            textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
             textEntity3.setLayoutY(300);
             textEntity1.toFront();
@@ -190,10 +190,10 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(700);
-            textEntity1.setLayoutY(300);
-            textEntity2.setLayoutX(100);
-            textEntity2.setLayoutY(300);
+            textEntity1.setLayoutX(640);
+            textEntity1.setLayoutY(100);
+            textEntity2.setLayoutX(640);
+            textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
             textEntity3.setLayoutY(300);
             textEntity1.toFront();
@@ -210,10 +210,10 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(700);
-            textEntity1.setLayoutY(300);
-            textEntity2.setLayoutX(100);
-            textEntity2.setLayoutY(300);
+            textEntity1.setLayoutX(640);
+            textEntity1.setLayoutY(100);
+            textEntity2.setLayoutX(640);
+            textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
             textEntity3.setLayoutY(300);
             textEntity1.toFront();
@@ -230,10 +230,10 @@ public class Background extends ImageView {
             Text textEntity2 = textEntities[1];
             Text textEntity3 = textEntities[2];
 
-            textEntity1.setLayoutX(700);
-            textEntity1.setLayoutY(300);
-            textEntity2.setLayoutX(100);
-            textEntity2.setLayoutY(300);
+            textEntity1.setLayoutX(640);
+            textEntity1.setLayoutY(100);
+            textEntity2.setLayoutX(640);
+            textEntity2.setLayoutY(680);
             textEntity3.setLayoutX(300);
             textEntity3.setLayoutY(300);
             textEntity1.toFront();
