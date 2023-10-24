@@ -55,7 +55,7 @@ public class Background extends ImageView {
       }
  */
 
-    Image blackWhiteRainbow = new Image("file:src/main/java/com/pp1/digramsoft/assets/RainbowDiagram.png");
+    Image blackWhiteRainbow = new Image("file:src/main/java/com/pp1/digramsoft/assets/BlackWhiteRainbow.png");
     Image colouredRainbow = new Image("file:src/main/java/com/pp1/digramsoft/assets/ColouredRainbow.png");
     Image unlabeledStakeholdersMap = new Image("file:src/main/java/com/pp1/digramsoft/assets/UnlabeledStakeholdersMap.png");
     Image labeledStakeholdersMap = new Image("file:src/main/java/com/pp1/digramsoft/assets/LabeledStakeholdersMap.png");
@@ -77,7 +77,7 @@ public class Background extends ImageView {
         System.out.println("[Background] init with Type: " + entityType + " color: " + isColorful + " label: " + isLabeled);
         if (entityType == EntityType.RAINBOW_CHART && isColorful && isLabeled){
             this.setImage(colouredRainbow);
-            this.setFitWidth(width);
+            this.setFitWidth(width+150);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -86,7 +86,25 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.RAINBOW_CHART && !isColorful && isLabeled){
             this.setImage(blackWhiteRainbow);
-            this.setFitWidth(width);
+            this.setFitWidth(width+150);
+            this.setPreserveRatio(true);
+            Text textEntity1 = new Text(text[0]);
+            Text textEntity2 = new Text(text[1]);
+            Text textEntity3 = new Text(text[2]);
+            Text titleOfGraph = new Text(title);
+        }
+        if (entityType == EntityType.RAINBOW_CHART && isColorful && !isLabeled){
+            this.setImage(colouredRainbow);
+            this.setFitWidth(width+150);
+            this.setPreserveRatio(true);
+            Text textEntity1 = new Text(text[0]);
+            Text textEntity2 = new Text(text[1]);
+            Text textEntity3 = new Text(text[2]);
+            Text titleOfGraph = new Text(title);
+        }
+        if (entityType == EntityType.RAINBOW_CHART && !isColorful && !isLabeled){
+            this.setImage(blackWhiteRainbow);
+            this.setFitWidth(width+150);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -95,7 +113,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && isLabeled){
             this.setImage(labeledStakeholdersMap);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -103,7 +121,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && !isColorful && !isLabeled){
             this.setImage(unlabeledStakeholdersMap);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -111,7 +129,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && isColorful && isLabeled){
             this.setImage(colouredLabeledStakeholdersMap);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);
@@ -119,7 +137,7 @@ public class Background extends ImageView {
         }
         if (entityType == EntityType.STAKEHOLDER_MAP && isColorful && !isLabeled){
             this.setImage(colouredUnlabeledStakeholdersMap);
-            this.setFitWidth(width);
+            this.setFitWidth(width+100);
             this.setPreserveRatio(true);
             Text textEntity1 = new Text(text[0]);
             Text textEntity2 = new Text(text[1]);

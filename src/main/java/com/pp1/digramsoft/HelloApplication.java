@@ -73,6 +73,7 @@ public class HelloApplication extends Application {
         choiceBox.getItems().addAll("Rainbow Diagram", "Stakeholder Map");
         choiceBox.setValue("Rainbow Diagram");
         backgroundType = EntityType.RAINBOW_CHART;
+        stakeholderMapGenerator.setDiagramType(backgroundType);
         choiceBox.setOnAction((event -> {
             int selectedIndex = choiceBox.getSelectionModel().getSelectedIndex();
             System.out.println(selectedIndex);
