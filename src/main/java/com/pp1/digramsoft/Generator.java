@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import java.util.ArrayList;
+
 public class Generator extends Group {
     public Button button;
     public TextField[] textFields;
@@ -16,7 +18,7 @@ public class Generator extends Group {
     public EntityType entityType;
     public Circle[] colorSelect;
 
-    public Generator(double x, double y, String buttonText, EntityType entityType) {
+    public Generator(double x, double y, String buttonText, EntityType entityType, ArrayList<Stakeholder> stakeholders, Group root) {
         this.entityType = entityType;
 
         if (this.entityType == EntityType.STAKEHOLDER) {
@@ -43,6 +45,14 @@ public class Generator extends Group {
             };
             this.colorSelect[0].setOnMouseClicked(event -> {
                 System.out.println("[Generator] Open color selector");
+                Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) this.colorSelect[0].getFill());
+                stakeholder.setLayoutX(0);
+                stakeholder.setLayoutY(0);
+                root.getChildren().add(stakeholder);
+                stakeholders.add(stakeholder);
+
+                // reset
+                this.textFields[0].setText("");
             });
             // button
             this.button = new Button(buttonText);

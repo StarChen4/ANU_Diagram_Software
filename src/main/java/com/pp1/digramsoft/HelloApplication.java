@@ -28,11 +28,13 @@ import java.util.ArrayList;
 //}
 
 public class HelloApplication extends Application {
-    private final Group root = new Group();
+    public final Group root = new Group();
     private static final int WINDOW_WIDTH = 1280;
     private static final int WINDOW_HEIGHT = 720;
     private static final int LEFT_WINDOW_WIDTH = 260;
     private static final int LEFT_WINDOW_HEIGHT = 720;
+
+    private ArrayList<Stakeholder> stakeholders = new ArrayList<>();
     @Override
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(this.root, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -40,7 +42,7 @@ public class HelloApplication extends Application {
         leftWindow.setFill(Color.GRAY);
         root.getChildren().add(leftWindow);
 
-        Generator stakeholderGenerator = new Generator(10, 600, "Generate", EntityType.STAKEHOLDER);
+        Generator stakeholderGenerator = new Generator(10, 600, "Generate", EntityType.STAKEHOLDER, stakeholders, root);
         root.getChildren().add(stakeholderGenerator);
 
         stage.setScene(scene);
