@@ -120,7 +120,7 @@ public class Generator extends Group {
              */
             // colorSelect
             this.colorSelect = new Node[] {
-                    new ImageView(new Image("E:\\86316\\Projects\\Java\\Example\\digramSoft\\src\\main\\java\\com\\pp1\\digramsoft\\assets\\colorCircle.png",
+                    new ImageView(new Image("file:src/main/java/com/pp1/digramsoft/assets/colorCircle.png",
                             50, 50, false, false))
             };
             this.colorSelect[0].setLayoutX(0);
