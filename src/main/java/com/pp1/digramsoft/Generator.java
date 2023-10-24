@@ -95,7 +95,7 @@ public class Generator extends Group {
                 Stakeholder stakeholder = new Stakeholder(this.textFields[0].getText(), (Color) this.colorSelect[0].getFill(), true, root);
                 stakeholder.setLayoutX(10);
                 stakeholder.setLayoutY(10);
-                stakeholders.getChildren().add(stakeholder.draggablePart);
+                stakeholders.getChildren().add(stakeholder);
 //                root.getChildren().add(stakeholder);
 
                 // reset

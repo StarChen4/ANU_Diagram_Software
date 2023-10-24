@@ -95,6 +95,7 @@ public class Stakeholder extends Group {
     }
 
     public void addDraggableInScreen(Group root){
+        System.out.println("now the stakeholder " + this + "has children " + this.getChildren());
         if (this.getChildren().contains(draggablePart)) {
             this.getChildren().remove(draggablePart);
             System.out.println("draggablePart has been removed from the original stakeholder group");
@@ -102,7 +103,6 @@ public class Stakeholder extends Group {
                 root.getChildren().add(draggablePart);
                 System.out.println("draggablePart has been added into the root");
             }
-
         }
         else System.out.println("the draggablePart has already been dragged away");
     }
