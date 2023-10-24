@@ -43,7 +43,7 @@ public class Stakeholder extends Group {
      * @param color the color
      * @param needCopy whether this is one stakeholder with copy or not
      */
-    public Stakeholder(String name, Color color, boolean needCopy){
+    public Stakeholder(String name, Color color, boolean needCopy, Group root){
         // initialization
         this.name = name;
         this.color = color;
@@ -67,7 +67,7 @@ public class Stakeholder extends Group {
 
         // the copy of itself, cannot be dragged, no need to copy again
         if (needCopy) {
-            this.selfCopy = new Stakeholder(this.name, this.color, false);
+            this.selfCopy = new Stakeholder(this.name, this.color, false, root);
             this.selfCopy.setDraggable(false);
             this.getChildren().add(this.selfCopy);
         }
@@ -78,6 +78,7 @@ public class Stakeholder extends Group {
             this.mouseX = event.getSceneX();
             this.mouseY = event.getSceneY();
             this.draggablePart.toFront();
+            addInScreen(root);
         });
         // make the whole stakeholder draggable
         this.draggablePart.setOnMouseDragged(event -> {
@@ -90,6 +91,13 @@ public class Stakeholder extends Group {
         });
     }
 
+    public void addInScreen(Group root){
+        if (this.getChildren().contains(draggablePart)) {
+            this.getChildren().remove(draggablePart);
+            if (root.getChildren().contains(draggablePart))
+                root.getChildren().add(draggablePart);
+        }
+    }
     public void setDraggable(boolean isDraggable){this.isDraggable = isDraggable;}
     public Stakeholder getSelfCopy(){return selfCopy;}
     public String toString(){

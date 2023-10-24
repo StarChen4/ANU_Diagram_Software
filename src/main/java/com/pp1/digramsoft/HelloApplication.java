@@ -44,7 +44,7 @@ public class HelloApplication extends Application {
 
         root.getChildren().add(stakeholders);
         // Stakeholder Generator
-        Generator stakeholderGenerator = new Generator(10, 600, "Generate", EntityType.STAKEHOLDER, stakeholders);
+        Generator stakeholderGenerator = new Generator(10, 600, "Generate", EntityType.STAKEHOLDER, stakeholders, this.root);
         root.getChildren().add(stakeholderGenerator);
         // -> Diagram list
 
