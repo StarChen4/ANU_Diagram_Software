@@ -58,7 +58,7 @@ public class Generator extends Group {
             this.colorSelector.getChildren().add(color);
         }
         this.colorSelector.setVisible(this.isColorSelectorVisable);
-        this.getChildren().add(this.colorSelector);
+        root.getChildren().add(this.colorSelector);
 
         // STAKEHOLDER
         if (this.entityType == EntityType.STAKEHOLDER) {
@@ -83,11 +83,12 @@ public class Generator extends Group {
             };
             ((Circle) this.colorSelect[0]).setFill(Stakeholder.StakeholderColor.DARKGRAY.getColor());
             this.colorSelect[0].setOnMouseClicked(event -> {
+
                 System.out.println("[Generator] Open color selector");
 
                 this.isColorSelectorVisable = !this.isColorSelectorVisable;
                 this.colorSelector.setLayoutX(210);
-                this.colorSelector.setLayoutY(15);
+                this.colorSelector.setLayoutY(615);
                 this.colorSelector.setVisible(isColorSelectorVisable);
                 this.colorSelector.toFront();
             });
@@ -131,6 +132,7 @@ public class Generator extends Group {
             colorAdjust.setSaturation(this.isColorSelectorVisable ? 0 : -0.8);
             this.colorSelect[0].setEffect(colorAdjust);
             this.colorSelect[0].setOnMouseClicked(event -> {
+
                 System.out.println("[Generator] Open color selector");
 
                 this.isColorSelectorVisable = !this.isColorSelectorVisable;
@@ -155,6 +157,7 @@ public class Generator extends Group {
                         " title: ");
                 Background background = new Background(entityType, this.isColorSelectorVisable, this.hasLabel, text,
                         "", (HelloApplication.WINDOW_WIDTH - HelloApplication.LEFT_WINDOW_WIDTH - HelloApplication.RIGHT_WINDOW_WIDTH) * 0.8);
+                background.toBack();
                 toShow.getChildren().add(background);
 
                 // reset
