@@ -154,7 +154,7 @@ public class Generator extends Group {
                 System.out.println("[Generator] get isColorful:" + this.isColorSelectorVisable +
                         " isLabeled: " + isLabeled +
                         " title: ");
-                Background background = new Background(entityType, this.isColorSelectorVisable, isLabeled, text, "", 50);
+                Background background = new Background(entityType, this.isColorSelectorVisable, isLabeled, text, "", (HelloApplication.WINDOW_WIDTH - HelloApplication.LEFT_WINDOW_WIDTH - HelloApplication.RIGHT_WINDOW_WIDTH) * 0.8);
                 toShow.getChildren().add(background);
 
                 // reset
